@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="口顎功能健康資訊站｜趙哲暘醫師整理，涵蓋逆吞嚥、口呼吸、磨牙、舌繫帶、非齲性頸部病損與口肌功能治療，資料來源同儕審查學術文獻。">
+  <meta property="og:title" content="你的嘴巴還好嗎？｜口顎功能健康資訊站">
+  <meta property="og:description" content="逆吞嚥、口呼吸、磨牙——這些問題比你想的還常見。趙哲暘醫師根據 200+ 篇學術文獻整理，提供深入淺出的衛教資訊。">
+  <meta property="og:type" content="website">
+  <title>你的嘴巴還好嗎？｜口顎功能健康資訊站</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">🦷 口顎功能健康站</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">首頁</a></li>
+      <li><a href="tongue-thrust.html">逆吞嚥</a></li>
+      <li><a href="osa-bruxism.html">磨牙與睡眠</a></li>
+      <li><a href="mouth-breathing.html">口呼吸</a></li>
+      <li><a href="ankyloglossia.html">舌繫帶</a></li>
+      <li><a href="ncls.html">牙齒磨損</a></li>
+      <li><a href="omt.html">如何治療</a></li>
+      <li><a href="self-check.html">自我評估</a></li>
+      <li><a href="presentations.html">簡報資料</a></li>
+      <li><a href="about.html">關於本站</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="tag">🌟 免費學術研究成果 · 適合一般民眾閱讀</div>
+  <h1>你的嘴巴，<em>每天都在偷偷傷害你</em>嗎？</h1>
+  <p class="sub">你打鼾嗎？早上起床下巴會痠？牙齒在悄悄磨短？孩子嘴巴常開開的？這些，可能都來自同一個你從沒注意過的問題。</p>
+  <div class="hero-btns">
+    <a href="self-check.html" class="btn btn-primary">👉 30 秒自我評估</a>
+    <a href="#start" class="btn btn-outline">了解更多 ↓</a>
+  </div>
+</div>
+
+<main id="start">
+
+  <!-- 快速自我檢查 -->
+  <section>
+    <div class="section-label">📋 先做個小測驗</div>
+    <h2>你有這些狀況嗎？</h2>
+    <p class="lead">勾選看看，算算你有幾項。這不是醫療診斷，但可以提醒你是否需要進一步了解。</p>
+
+    <div class="self-check">
+      <h4>🔍 快速 10 秒自我檢查</h4>
+      <label class="check-item"><input type="checkbox" class="home-check"> <span>早上起床，下巴會痠或頭痛</span></label>
+      <label class="check-item"><input type="checkbox" class="home-check"> <span>家人說你睡覺會磨牙或打鼾</span></label>
+      <label class="check-item"><input type="checkbox" class="home-check"> <span>平常嘴唇是張開的，不自覺用嘴巴呼吸</span></label>
+      <label class="check-item"><input type="checkbox" class="home-check"> <span>牙齒靠近牙根的地方有缺一塊（楔形小洞）</span></label>
+      <label class="check-item"><input type="checkbox" class="home-check"> <span>孩子嘴巴常常張開，說話有點大舌頭</span></label>
+      <label class="check-item"><input type="checkbox" class="home-check"> <span>吞嚥時，下巴或嘴唇會用力</span></label>
+      <label class="check-item"><input type="checkbox" class="home-check"> <span>牙齒矯正完過沒多久又跑掉了</span></label>
+      <button class="btn btn-primary" onclick="calcHomeScore()" style="margin-top:1rem;">看我的結果 →</button>
+      <div class="score-area" id="homeScore"></div>
+    </div>
+  </section>
+
+  <!-- 核心數字 -->
+  <section>
+    <div class="section-label">📊 你可能不知道的數字</div>
+    <h2>這些問題，比你想像的更常見</h2>
+    <div class="stats">
+      <div class="stat"><div class="num" style="color:#2563a8;">50%</div><div class="unit">兒童有某種程度的口顎肌肉問題</div></div>
+      <div class="stat"><div class="num" style="color:#16a34a;">39%</div><div class="unit">睡眠呼吸中止症患者同時有磨牙問題</div></div>
+      <div class="stat"><div class="num" style="color:#f97316;">7.4倍</div><div class="unit">逆吞嚥比正常吞嚥施加在牙齒上的力量</div></div>
+      <div class="stat"><div class="num" style="color:#7c3aed;">85%</div><div class="unit">成年人的牙頸部都有不同程度的磨損</div></div>
+    </div>
+  </section>
+
+  <!-- 金句 -->
+  <div class="quote">
+    <div class="q-text">「牙齒壞掉，不一定是因為不刷牙。<br>很可能是因為你吞嚥的方式，從小就不對。」</div>
+    <div class="q-source">── 口顎肌功能異常多系統影響研究摘要</div>
+  </div>
+
+  <!-- 主題導覽 -->
+  <section>
+    <div class="section-label">🗺 探索主題</div>
+    <h2>你最想先了解哪個？</h2>
+    <p class="lead">每個主題都有專屬頁面，有簡單說明、測驗和流程圖，用高中生都能懂的方式解釋。</p>
+
+    <div class="card-grid">
+      <a class="topic-card" href="tongue-thrust.html" style="border-top-color:#2563a8;">
+        <div class="icon">👅</div>
+        <h3>逆吞嚥（舌推力）</h3>
+        <p>你每天吞嚥 2,000 次——如果每次舌頭都往前推，牙齒累積的傷害有多大？</p>
+        <div class="arrow">探索這個主題 →</div>
+      </a>
+      <a class="topic-card" href="osa-bruxism.html" style="border-top-color:#dc2626;">
+        <div class="icon">😴</div>
+        <h3>磨牙與睡眠呼吸</h3>
+        <p>你知道磨牙不是因為壓力嗎？很多人的磨牙，其實是睡眠時氧氣不夠引起的。</p>
+        <div class="arrow">探索這個主題 →</div>
+      </a>
+      <a class="topic-card" href="mouth-breathing.html" style="border-top-color:#7c3aed;">
+        <div class="icon">😮‍💨</div>
+        <h3>口呼吸</h3>
+        <p>嘴巴呼吸不只是壞習慣——它會改變孩子的臉型，影響學習和睡眠，甚至被誤診為過動。</p>
+        <div class="arrow">探索這個主題 →</div>
+      </a>
+      <a class="topic-card" href="ankyloglossia.html" style="border-top-color:#f97316;">
+        <div class="icon">👶</div>
+        <h3>舌繫帶沾黏</h3>
+        <p>不只影響哺乳和說話——舌頭太短，可能讓孩子長大後睡不好、臉型發育不正常。</p>
+        <div class="arrow">探索這個主題 →</div>
+      </a>
+      <a class="topic-card" href="ncls.html" style="border-top-color:#0d9488;">
+        <div class="icon">🦷</div>
+        <h3>牙齒悄悄在磨損</h3>
+        <p>牙頸部的小缺口，真的不是刷牙刷壞的。背後的原因，跟你吞嚥的方式有關。</p>
+        <div class="arrow">探索這個主題 →</div>
+      </a>
+      <a class="topic-card" href="omt.html" style="border-top-color:#16a34a;">
+        <div class="icon">💪</div>
+        <h3>口顎肌功能治療</h3>
+        <p>這些問題，有治療方法嗎？有的！而且效果被大型研究確認，不是偏方。</p>
+        <div class="arrow">探索這個主題 →</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 問題一覽 -->
+  <section>
+    <div class="section-label">🔗 它們是怎麼連在一起的？</div>
+    <h2>一個根本問題，引發一連串後果</h2>
+    <p class="lead">很多人以為這些問題各自獨立，其實它們有一個共同的起源。</p>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="bubble" style="background:#7c3aed;">1</div>
+        <div class="content">
+          <strong>嬰兒時期的吞嚥方式沒有改變</strong>
+          <span>寶寶天生用舌頭往前推來喝奶，但 6 歲前應該改掉這個模式</span>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="bubble" style="background:#2563a8;">2</div>
+        <div class="content">
+          <strong>舌頭長期姿勢偏低、偏前</strong>
+          <span>失去對上顎的支撐，嘴巴容易開開的，開始用嘴呼吸</span>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="bubble" style="background:#f97316;">3</div>
+        <div class="content">
+          <strong>上顎發育變窄、臉型改變、氣道變小</strong>
+          <span>口呼吸加劇，導致睡覺時呼吸道容易塌陷</span>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="bubble" style="background:#dc2626;">4</div>
+        <div class="content">
+          <strong>睡眠中氧氣不足，大腦叫身體醒過來</strong>
+          <span>每次「微覺醒」都會引發咀嚼肌收縮——也就是磨牙</span>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="bubble" style="background:#0d9488;">5</div>
+        <div class="content">
+          <strong>牙齒日夜承受異常力量</strong>
+          <span>白天被舌頭橫向推，晚上被磨牙垂直磨——牙齒怎麼會好？</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hl hl-green">
+      <div class="title">✅ 好消息</div>
+      <p>這個級聯是可以被打斷的。針對根本原因（舌頭功能）的治療，已被多項大型研究證實有效，甚至能改善睡眠、減少磨牙、讓氣道變大。</p>
+    </div>
+  </section>
+
+  <!-- 學術依據 -->
+  <section>
+    <div class="section-label">🔬 學術可信度</div>
+    <h2>本站的每句話，都有論文可查</h2>
+    <p class="lead">這不是網路上的一般文章。本站由<strong>趙哲暘醫師</strong>（台灣牙科睡眠醫學會理事長、陽明交通大學腦科學博士）主持，透過三個國際學術資料庫系統性查詢整理而成。</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="num">200+</div>
+        <div class="label">查詢論文數</div>
+      </div>
+      <div class="stat">
+        <div class="num">3</div>
+        <div class="label">學術資料庫</div>
+      </div>
+      <div class="stat">
+        <div class="num">6</div>
+        <div class="label">主題深度研究</div>
+      </div>
+      <div class="stat">
+        <div class="num">36</div>
+        <div class="label">學術簡報</div>
+      </div>
+    </div>
+
+    <div class="card-grid" style="margin-top:1.5rem;">
+      <div class="card" style="border-top:4px solid #f97316;">
+        <h3 style="margin-top:0; color:#f97316;">📚 SciSpace</h3>
+        <p style="font-size:.9rem; margin-bottom:0;">2.8 億篇論文資料庫，每主題廣度搜尋 300–500 篇文獻，確保不遺漏重要研究。</p>
+      </div>
+      <div class="card" style="border-top:4px solid #6d28d9;">
+        <h3 style="margin-top:0; color:#6d28d9;">🔢 Elicit</h3>
+        <p style="font-size:.9rem; margin-bottom:0;">1.38 億篇論文，精確萃取 OR/RR/CI 等量化數值，讓本站引用的每個統計數字都有依據。</p>
+      </div>
+      <div class="card" style="border-top:4px solid #0d9488;">
+        <h3 style="margin-top:0; color:#0d9488;">⚖️ Consensus</h3>
+        <p style="font-size:.9rem; margin-bottom:0;">2 億篇論文，量化學術共識程度，反映整體研究走向而非單一論文結論。</p>
+      </div>
+    </div>
+
+    <!-- 六大主題概覽圖 -->
+    <figure style="margin:1.5rem 0 0; text-align:center;">
+      <img src="images/index-overview-diagram.png"
+        alt="口顎功能六大主題相互關聯概覽圖"
+        style="width:100%; max-width:720px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.12);"
+        loading="lazy">
+      <figcaption style="font-size:.82rem; color:#64748b; margin-top:.6rem;">
+        ▲ 口顎功能六大主題相互關聯示意圖 ｜ GPT Image 1.5 繪製 ｜ 趙哲暘醫師審訂
+      </figcaption>
+    </figure>
+
+    <div style="text-align:center; margin-top:1.5rem;">
+      <a href="about.html" class="btn btn-outline">📖 了解完整學術方法論 →</a>
+      <a href="about.html#disclaimer" class="btn btn-outline" style="margin-left:.5rem;">⚖️ 查看免責聲明</a>
+    </div>
+  </section>
+
+  <!-- 作者 -->
+  <section>
+    <div class="section-label">👨‍⚕️ 內容來源</div>
+    <h2>趙哲暘醫師</h2>
+    <div class="hl hl-blue">
+      <div class="title">🏆 氧樂多牙醫診所院長 · 台灣牙科睡眠醫學會理事長</div>
+      <p>專長：以上呼吸道與顳顎關節健康為導向的不拔牙齒顎矯正、顳顎關節診療、睡眠呼吸中止症</p>
+      <p>學歷：國立陽明大學牙醫學系、國立陽明交通大學腦科學研究所博士</p>
+      <p style="margin-bottom:0;">
+        <a href="https://www.facebook.com/ZhaoYishi" target="_blank" style="color:#1877f2; font-weight:600;">📘 Facebook：趙哲暘醫師</a>
+        &nbsp;·&nbsp;
+        <a href="about.html" style="color:var(--primary); font-weight:600;">關於本站 →</a>
+      </p>
+    </div>
+
+    <!-- 跨科合作團隊圖 -->
+    <figure style="margin:1.5rem 0 0; text-align:center;">
+      <img src="images/index-team-diagram.png"
+        alt="口顎功能跨科合作治療團隊示意圖"
+        style="width:100%; max-width:720px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.12);"
+        loading="lazy">
+      <figcaption style="font-size:.82rem; color:#64748b; margin-top:.6rem;">
+        ▲ 口顎功能問題需要多科合作——牙科、耳鼻喉科、語言治療師、睡眠醫學的團隊協作 ｜ GPT Image 1.5 繪製
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- 你可能有的疑問 -->
+  <section>
+    <div class="section-label">❓ 常見疑問</div>
+    <h2>你可能想問的問題</h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">這是什麼科在處理？我要看哪裡？<span class="faq-toggle">+</span></div>
+      <div class="faq-a">這個問題涉及多個科別：牙科和矯正科負責評估口腔結構、耳鼻喉科處理鼻塞和扁桃腺、睡眠醫學科診斷睡眠呼吸問題、語言治療師負責訓練吞嚥和舌頭功能。許多牙科診所現在也開始提供初步評估。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">孩子幾歲最適合開始處理？<span class="faq-toggle">+</span></div>
+      <div class="faq-a">越早越好！4–8 歲是骨骼可塑性最好的黃金期，這個時候介入，可以大幅改善臉型發育的走向。8–12 歲還可以做到中等程度的改善。成人也有治療方法，只是效果比兒童期介入稍慢。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">口顎肌功能治療要做多久？<span class="faq-toggle">+</span></div>
+      <div class="faq-a">一般療程約 6–12 個月，每週或每兩週回診一次，搭配每天在家練習。就像矯正牙齒一樣需要時間，但成效持久。研究顯示，完成訓練後的患者，OSA（睡眠呼吸中止）症狀平均改善了 50%。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">我已經戴咬合板了，還需要嗎？<span class="faq-toggle">+</span></div>
+      <div class="faq-a">咬合板可以保護你的牙齒不被磨壞，但它不能解決磨牙的根本原因。如果你的磨牙是因為睡眠呼吸中止症造成的，不治療 OSA，磨牙永遠不會停。咬合板是保護傘，不是根治方法。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">這些說法有科學根據嗎？<span class="faq-toggle">+</span></div>
+      <div class="faq-a">有的！本站所有資訊來自已發表的系統性回顧、Meta 分析和 PSG（多項睡眠生理監測）研究，包括 SciSpace 學術資料庫中的 220+ 篇有效文獻。相關學術簡報可在「簡報資料」頁面查閱。</div>
+    </div>
+  </section>
+
+  <!-- 行動呼籲 -->
+  <section>
+    <div class="card" style="text-align:center; background:linear-gradient(135deg,#eff6ff,#f0fdf4); padding:2.5rem;">
+      <div style="font-size:2.5rem; margin-bottom:1rem;">🌱</div>
+      <h2 style="margin-bottom:.8rem;">你願意花 10 分鐘了解自己的嘴巴健康嗎？</h2>
+      <p style="color:var(--muted); max-width:500px; margin:0 auto 1.5rem;">大部分的口顎功能問題，只要早點發現、早點正確處理，都有很好的改善機會。</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="self-check.html" class="btn btn-primary">做完整自我評估</a>
+        <a href="tongue-thrust.html" class="btn" style="background:#0d9488; color:#fff;">認識逆吞嚥</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 相關資源 -->
+  <section>
+    <div class="section-label">📚 延伸資源</div>
+    <h2>想深入了解？</h2>
+    <div class="related-grid">
+      <a href="presentations.html" class="related-link">📊 36 份學術簡報（各主題）</a>
+      <a href="about.html" class="related-link">📥 下載學術整理文件（EN/ZH）</a>
+      <a href="omt.html" class="related-link">💪 治療方法總覽</a>
+      <a href="self-check.html" class="related-link">📋 完整自我評估</a>
+      <a href="https://gamma.app/docs/fdbvfvz097g0v5i" target="_blank" class="related-link">🌐 Gamma 線上簡報入口</a>
+      <a href="about.html" class="related-link">👨‍⚕️ 關於趙哲暘醫師</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">首頁</a>
+    <a href="tongue-thrust.html">逆吞嚥</a>
+    <a href="osa-bruxism.html">磨牙與睡眠</a>
+    <a href="mouth-breathing.html">口呼吸</a>
+    <a href="ankyloglossia.html">舌繫帶</a>
+    <a href="ncls.html">牙齒磨損</a>
+    <a href="omt.html">治療方法</a>
+    <a href="self-check.html">自我評估</a>
+    <a href="presentations.html">學術簡報</a>
+    <a href="about.html">關於本站</a>
+  </div>
+  <p style="margin-top:1rem;">
+    <strong>趙哲暘醫師</strong>｜氧樂多牙醫診所院長｜台灣牙科睡眠醫學會理事長<br>
+    <a href="https://www.facebook.com/ZhaoYishi" target="_blank" style="color:#93c5fd;">📘 Facebook：趙哲暘醫師</a>
+  </p>
+  <p>本站資訊來自學術研究（SciSpace · Elicit · Consensus，查詢逾 200 篇論文），不構成醫療建議。如有症狀請諮詢專業醫療人員。</p>
+  <p style="margin-top:.5rem; font-size:.8rem; opacity:.7;"><a href="about.html#disclaimer" style="color:#93c5fd;">完整免責聲明</a>｜引用請標注：趙哲暘醫師 口顎功能健康站（2026）｜資料來源：SciSpace CDP v8.3 · Elicit · Consensus ｜ 2026-04-14 更新</p>
+</footer>
+
+<script>
+function calcHomeScore() {
+  const checks = document.querySelectorAll('.home-check');
+  let count = 0;
+  checks.forEach(c => { if (c.checked) count++; });
+  const el = document.getElementById('homeScore');
+  el.classList.add('show');
+  let msg = '', bg = '';
+  if (count === 0) {
+    msg = '👍 你目前沒有明顯的口顎功能問題跡象。保持好習慣，繼續維持鼻呼吸和正確吞嚥！';
+    bg = '#dcfce7';
+  } else if (count <= 2) {
+    msg = '⚠️ 你有 ' + count + ' 項需要注意。建議進一步閱讀相關主題，並和牙科醫師討論。';
+    bg = '#fef3c7';
+  } else if (count <= 4) {
+    msg = '🔴 你有 ' + count + ' 項符合，這值得認真關注。建議做完整的自我評估，並尋求專業評估。';
+    bg = '#ffedd5';
+  } else {
+    msg = '🚨 你有 ' + count + ' 項符合，強烈建議尋求專業評估。這些症狀可能互相關聯，需要整合性的處理。';
+    bg = '#fee2e2';
+  }
+  el.innerHTML = '<div style="padding:.9rem 1.1rem; border-radius:8px; background:' + bg + '; font-size:.9rem;">' + msg + '<br><br><a href="self-check.html" style="color:#1e40af; font-weight:700;">→ 做更詳細的評估</a></div>';
+}
+
+function toggleFaq(el) {
+  const a = el.nextElementSibling;
+  const t = el.querySelector('.faq-toggle');
+  a.classList.toggle('open');
+  t.classList.toggle('open');
+}
+</script>
+</body>
+</html>
