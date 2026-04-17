@@ -34,8 +34,9 @@
 <!-- HERO -->
 <div class="hero">
   <div class="tag">🌟 免費學術研究成果 · 適合一般民眾閱讀</div>
-  <h1>你的嘴巴，<em>每天都在偷偷傷害你</em>嗎？</h1>
-  <p class="sub">你打鼾嗎？早上起床下巴會痠？牙齒在悄悄磨短？孩子嘴巴常開開的？這些，可能都來自同一個你從沒注意過的問題。</p>
+  <h1>你的嘴巴，<em>可能每天都在發出求救訊號。</em></h1>
+  <p class="sub">口呼吸、逆吞嚥、磨牙、牙齒磨耗與睡眠問題，很多時候不是獨立事件，而是同一套<strong>口顎功能失衡</strong>的表現。</p>
+  <p class="sub" style="font-size:.95rem; margin-top:-.3rem; opacity:.88;">早上下巴會痠？牙齒悄悄磨短？孩子嘴巴常開著？這些可能都來自同一個你從沒注意過的根本原因。</p>
   <div class="hero-btns">
     <a href="self-check.html" class="btn btn-primary">👉 30 秒自我評估</a>
     <a href="#start" class="btn btn-outline">了解更多 ↓</a>
@@ -52,13 +53,13 @@
 
     <div class="self-check">
       <h4>🔍 快速 10 秒自我檢查</h4>
-      <label class="check-item"><input type="checkbox" class="home-check"> <span>早上起床，下巴會痠或頭痛</span></label>
-      <label class="check-item"><input type="checkbox" class="home-check"> <span>家人說你睡覺會磨牙或打鼾</span></label>
-      <label class="check-item"><input type="checkbox" class="home-check"> <span>平常嘴唇是張開的，不自覺用嘴巴呼吸</span></label>
-      <label class="check-item"><input type="checkbox" class="home-check"> <span>牙齒靠近牙根的地方有缺一塊（楔形小洞）</span></label>
-      <label class="check-item"><input type="checkbox" class="home-check"> <span>孩子嘴巴常常張開，說話有點大舌頭</span></label>
-      <label class="check-item"><input type="checkbox" class="home-check"> <span>吞嚥時，下巴或嘴唇會用力</span></label>
-      <label class="check-item"><input type="checkbox" class="home-check"> <span>牙齒矯正完過沒多久又跑掉了</span></label>
+      <label class="check-item"><input type="checkbox" class="home-check" data-cat="sleep"> <span>早上起床，下巴會痠或頭痛</span></label>
+      <label class="check-item"><input type="checkbox" class="home-check" data-cat="sleep"> <span>家人說你睡覺會磨牙或打鼾</span></label>
+      <label class="check-item"><input type="checkbox" class="home-check" data-cat="breath"> <span>平常嘴唇是張開的，不自覺用嘴巴呼吸</span></label>
+      <label class="check-item"><input type="checkbox" class="home-check" data-cat="wear"> <span>牙齒靠近牙根的地方有缺一塊（楔形小洞）</span></label>
+      <label class="check-item"><input type="checkbox" class="home-check" data-cat="tongue"> <span>孩子嘴巴常常張開，說話有點大舌頭</span></label>
+      <label class="check-item"><input type="checkbox" class="home-check" data-cat="tongue"> <span>吞嚥時，下巴或嘴唇會用力</span></label>
+      <label class="check-item"><input type="checkbox" class="home-check" data-cat="wear"> <span>牙齒矯正完過沒多久又跑掉了</span></label>
       <button class="btn btn-primary" onclick="calcHomeScore()" style="margin-top:1rem;">看我的結果 →</button>
       <div class="score-area" id="homeScore"></div>
     </div>
@@ -69,10 +70,30 @@
     <div class="section-label">📊 你可能不知道的數字</div>
     <h2>這些問題，比你想像的更常見</h2>
     <div class="stats">
-      <div class="stat"><div class="num" style="color:#2563a8;">50%</div><div class="unit">兒童有某種程度的口顎肌肉問題</div></div>
-      <div class="stat"><div class="num" style="color:#16a34a;">39%</div><div class="unit">睡眠呼吸中止症患者同時有磨牙問題</div></div>
-      <div class="stat"><div class="num" style="color:#f97316;">7.4倍</div><div class="unit">逆吞嚥比正常吞嚥施加在牙齒上的力量</div></div>
-      <div class="stat"><div class="num" style="color:#7c3aed;">85%</div><div class="unit">成年人的牙頸部都有不同程度的磨損</div></div>
+      <div class="stat">
+        <div class="num" style="color:#2563a8;">50%</div>
+        <div class="unit">兒童有某種程度的口顎肌肉問題</div>
+        <div style="font-size:.78rem; color:#64748b; margin-top:.5rem; line-height:1.5;">研究方法與年齡範圍不同，比例差異大，但問題普遍性有一致共識。</div>
+        <a href="omt.html" style="font-size:.78rem; color:#2563a8; text-decoration:none; font-weight:600;">了解口顎肌功能治療 →</a>
+      </div>
+      <div class="stat">
+        <div class="num" style="color:#16a34a;">39%</div>
+        <div class="unit">睡眠呼吸中止症患者同時有磨牙問題</div>
+        <div style="font-size:.78rem; color:#64748b; margin-top:.5rem; line-height:1.5;">兩者可能共享「呼吸道壓力 → 大腦微覺醒 → 肌肉收縮」的機制。</div>
+        <a href="osa-bruxism.html" style="font-size:.78rem; color:#16a34a; text-decoration:none; font-weight:600;">了解磨牙與睡眠 →</a>
+      </div>
+      <div class="stat">
+        <div class="num" style="color:#f97316;">7.4倍</div>
+        <div class="unit">逆吞嚥比正常吞嚥施加在牙齒上的力量</div>
+        <div style="font-size:.78rem; color:#64748b; margin-top:.5rem; line-height:1.5;">實際影響需考慮頻率、年齡與個體差異，研究方法各有不同。</div>
+        <a href="tongue-thrust.html" style="font-size:.78rem; color:#f97316; text-decoration:none; font-weight:600;">了解逆吞嚥 →</a>
+      </div>
+      <div class="stat">
+        <div class="num" style="color:#7c3aed;">85%</div>
+        <div class="unit">成年人的牙頸部都有不同程度的磨損</div>
+        <div style="font-size:.78rem; color:#64748b; margin-top:.5rem; line-height:1.5;">磨損程度因人而異，並非都需要積極處理，但輕忽可能讓情況惡化。</div>
+        <a href="ncls.html" style="font-size:.78rem; color:#7c3aed; text-decoration:none; font-weight:600;">了解牙齒磨損 →</a>
+      </div>
     </div>
   </section>
 
@@ -88,13 +109,12 @@
     <h2>你最想先了解哪個？</h2>
     <p class="lead">每個主題都有專屬頁面，有簡單說明、測驗和流程圖，用高中生都能懂的方式解釋。</p>
 
-    <div class="card-grid">
-      <a class="topic-card" href="tongue-thrust.html" style="border-top-color:#2563a8;">
-        <div class="icon">👅</div>
-        <h3>逆吞嚥（舌推力）</h3>
-        <p>你每天吞嚥 2,000 次——如果每次舌頭都往前推，牙齒累積的傷害有多大？</p>
-        <div class="arrow">探索這個主題 →</div>
-      </a>
+    <!-- 分類一：呼吸與睡眠 -->
+    <div style="display:flex; align-items:center; gap:.6rem; margin-bottom:.8rem; margin-top:1.5rem;">
+      <span style="background:#dc2626; color:#fff; font-size:.75rem; font-weight:700; padding:.25rem .7rem; border-radius:20px; letter-spacing:.03em;">呼吸與睡眠</span>
+      <span style="font-size:.85rem; color:#64748b;">氣道、打鼾、磨牙、日間疲勞</span>
+    </div>
+    <div class="card-grid" style="margin-bottom:1.8rem;">
       <a class="topic-card" href="osa-bruxism.html" style="border-top-color:#dc2626;">
         <div class="icon">😴</div>
         <h3>磨牙與睡眠呼吸</h3>
@@ -107,12 +127,34 @@
         <p>嘴巴呼吸不只是壞習慣——它會改變孩子的臉型，影響學習和睡眠，甚至被誤診為過動。</p>
         <div class="arrow">探索這個主題 →</div>
       </a>
+    </div>
+
+    <!-- 分類二：吞嚥與舌功能 -->
+    <div style="display:flex; align-items:center; gap:.6rem; margin-bottom:.8rem;">
+      <span style="background:#7c3aed; color:#fff; font-size:.75rem; font-weight:700; padding:.25rem .7rem; border-radius:20px; letter-spacing:.03em;">吞嚥與舌功能</span>
+      <span style="font-size:.85rem; color:#64748b;">舌位、吞嚥代償、繫帶、說話</span>
+    </div>
+    <div class="card-grid" style="margin-bottom:1.8rem;">
+      <a class="topic-card" href="tongue-thrust.html" style="border-top-color:#2563a8;">
+        <div class="icon">👅</div>
+        <h3>逆吞嚥（舌推力）</h3>
+        <p>你每天吞嚥 2,000 次——如果每次舌頭都往前推，牙齒累積的傷害有多大？</p>
+        <div class="arrow">探索這個主題 →</div>
+      </a>
       <a class="topic-card" href="ankyloglossia.html" style="border-top-color:#f97316;">
         <div class="icon">👶</div>
         <h3>舌繫帶沾黏</h3>
         <p>不只影響哺乳和說話——舌頭太短，可能讓孩子長大後睡不好、臉型發育不正常。</p>
         <div class="arrow">探索這個主題 →</div>
       </a>
+    </div>
+
+    <!-- 分類三：咬合與結構後果 -->
+    <div style="display:flex; align-items:center; gap:.6rem; margin-bottom:.8rem;">
+      <span style="background:#0d9488; color:#fff; font-size:.75rem; font-weight:700; padding:.25rem .7rem; border-radius:20px; letter-spacing:.03em;">咬合與結構後果</span>
+      <span style="font-size:.85rem; color:#64748b;">牙齒磨耗、臉型、矯正後穩定</span>
+    </div>
+    <div class="card-grid">
       <a class="topic-card" href="ncls.html" style="border-top-color:#0d9488;">
         <div class="icon">🦷</div>
         <h3>牙齒悄悄在磨損</h3>
@@ -125,6 +167,89 @@
         <p>這些問題，有治療方法嗎？有的！而且效果被大型研究確認，不是偏方。</p>
         <div class="arrow">探索這個主題 →</div>
       </a>
+    </div>
+  </section>
+
+  <!-- 常見誤解 -->
+  <section>
+    <div class="section-label">💡 常見誤解</div>
+    <h2>這些你可能聽錯了</h2>
+    <p class="lead">這些問題不一定來自單一原因，但常常彼此相關。你不需要先學會所有專有名詞，只需要先知道哪些訊號不該忽略。</p>
+
+    <div class="card-grid">
+      <div class="card" style="border-top:4px solid #dc2626;">
+        <h3 style="margin-top:0; color:#dc2626; font-size:1rem;">❌ 磨牙是因為壓力</h3>
+        <p style="font-size:.88rem; margin-bottom:0;">壓力確實有影響，但許多人的磨牙是因為睡眠時氧氣不足，大腦叫身體用力收縮下巴來打開氣道。壓力只是誘因，呼吸道才是根本。</p>
+      </div>
+      <div class="card" style="border-top:4px solid #7c3aed;">
+        <h3 style="margin-top:0; color:#7c3aed; font-size:1rem;">❌ 嘴巴呼吸只是壞習慣</h3>
+        <p style="font-size:.88rem; margin-bottom:0;">口呼吸通常有生理原因——鼻塞、扁桃腺肥大、舌頭姿勢偏低。光靠「提醒閉嘴」並不能解決，需要找出阻塞的根本原因。</p>
+      </div>
+      <div class="card" style="border-top:4px solid #0d9488;">
+        <h3 style="margin-top:0; color:#0d9488; font-size:1rem;">❌ 牙齒磨損是刷牙太大力</h3>
+        <p style="font-size:.88rem; margin-bottom:0;">牙頸部的楔形缺損（NCCL）研究顯示，異常咬合力與吞嚥代償是主要機制之一，不只是刷牙方式問題。換牙刷不能解決根本原因。</p>
+      </div>
+      <div class="card" style="border-top:4px solid #f97316;">
+        <h3 style="margin-top:0; color:#f97316; font-size:1rem;">❌ 矯正後牙齒跑掉是沒戴保持器</h3>
+        <p style="font-size:.88rem; margin-bottom:0;">如果吞嚥方式沒有改變，舌頭每天持續推牙齒的力量會讓矯正結果不穩定。保持器能延緩，但無法對抗根本的功能失衡。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 什麼時候應該求助 -->
+  <section>
+    <div class="section-label">🏥 什麼時候該求助</div>
+    <h2>這些訊號，值得認真評估</h2>
+    <p class="lead">這不是自我診斷工具，而是幫你判斷是否值得進一步評估。以下情況出現，建議主動諮詢相關科別。</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+      <div class="hl hl-blue" style="margin:0;">
+        <div class="title">🦷 牙科 / 矯正科</div>
+        <ul style="margin:.5rem 0 0; padding-left:1.3rem; font-size:.88rem; line-height:1.9;">
+          <li>牙齒矯正後反覆回位</li>
+          <li>牙頸部有楔形缺損</li>
+          <li>咬合感覺不對稱</li>
+          <li>下巴關節有聲音或疼痛</li>
+        </ul>
+      </div>
+      <div class="hl hl-blue" style="margin:0;">
+        <div class="title">😴 睡眠 / 耳鼻喉科</div>
+        <ul style="margin:.5rem 0 0; padding-left:1.3rem; font-size:.88rem; line-height:1.9;">
+          <li>早上起床仍然疲憊</li>
+          <li>打鼾或睡眠時呼吸暫停</li>
+          <li>磨牙已經造成明顯磨損</li>
+          <li>日間過度嗜睡、注意力差</li>
+        </ul>
+      </div>
+      <div class="hl hl-blue" style="margin:0;">
+        <div class="title">👅 語言治療師</div>
+        <ul style="margin:.5rem 0 0; padding-left:1.3rem; font-size:.88rem; line-height:1.9;">
+          <li>孩子吞嚥時嘴唇或下巴會用力</li>
+          <li>說話有發音問題（大舌頭）</li>
+          <li>舌頭無法輕鬆碰到上顎</li>
+          <li>餵奶或進食困難</li>
+        </ul>
+      </div>
+      <div class="hl hl-blue" style="margin:0;">
+        <div class="title">👶 兒科 / 發育評估</div>
+        <ul style="margin:.5rem 0 0; padding-left:1.3rem; font-size:.88rem; line-height:1.9;">
+          <li>孩子長期嘴巴張開呼吸</li>
+          <li>臉型有明顯的垂直拉長感</li>
+          <li>學業注意力問題合併打鼾</li>
+          <li>舌繫帶疑似過短</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hl hl-green" style="margin-top:1.2rem;">
+      <div class="title">📋 看診前可以準備的問題</div>
+      <p style="font-size:.88rem; margin-bottom:.3rem;">帶著這些問題去，可以讓評估更有效率：</p>
+      <ul style="margin:.3rem 0 0; padding-left:1.3rem; font-size:.88rem; line-height:1.9;">
+        <li>「我的症狀是否可能與口顎功能失衡有關？」</li>
+        <li>「是否需要評估睡眠呼吸？」</li>
+        <li>「口顎肌功能訓練（OMT）適合我嗎？」</li>
+        <li>「需要多科合作評估嗎？」</li>
+      </ul>
     </div>
   </section>
 
@@ -348,7 +473,14 @@
 function calcHomeScore() {
   const checks = document.querySelectorAll('.home-check');
   let count = 0;
-  checks.forEach(c => { if (c.checked) count++; });
+  const catCount = {sleep:0, breath:0, tongue:0, wear:0};
+  checks.forEach(c => {
+    if (c.checked) {
+      count++;
+      const cat = c.dataset.cat;
+      if (cat) catCount[cat]++;
+    }
+  });
   const el = document.getElementById('homeScore');
   el.classList.add('show');
   let msg = '', bg = '';
@@ -365,7 +497,31 @@ function calcHomeScore() {
     msg = '🚨 你有 ' + count + ' 項符合，強烈建議尋求專業評估。這些症狀可能互相關聯，需要整合性的處理。';
     bg = '#fee2e2';
   }
-  el.innerHTML = '<div style="padding:.9rem 1.1rem; border-radius:8px; background:' + bg + '; font-size:.9rem;">' + msg + '<br><br><a href="self-check.html" style="color:#1e40af; font-weight:700;">→ 做更詳細的評估</a></div>';
+
+  // Build reading path suggestions based on checked categories
+  const routeDefs = [
+    { cats: ['sleep','breath'], label:'呼吸與睡眠', color:'#dc2626',
+      links: [{text:'磨牙與睡眠呼吸', url:'osa-bruxism.html'},{text:'口呼吸', url:'mouth-breathing.html'}] },
+    { cats: ['tongue'], label:'吞嚥與舌功能', color:'#7c3aed',
+      links: [{text:'逆吞嚥', url:'tongue-thrust.html'},{text:'舌繫帶沾黏', url:'ankyloglossia.html'}] },
+    { cats: ['wear'], label:'咬合與磨耗', color:'#0d9488',
+      links: [{text:'牙齒磨損', url:'ncls.html'},{text:'口顎肌功能治療', url:'omt.html'}] }
+  ];
+
+  let routeHTML = '';
+  if (count > 0) {
+    const matched = routeDefs.filter(r => r.cats.some(c => catCount[c] > 0));
+    const toShow = matched.length > 0 ? matched : routeDefs;
+    routeHTML = '<div style="margin-top:.8rem;"><span style="font-size:.82rem; font-weight:700; color:#374151;">建議先閱讀：</span><div style="display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.4rem;">';
+    toShow.forEach(r => {
+      r.links.forEach(l => {
+        routeHTML += '<a href="' + l.url + '" style="display:inline-block; padding:.25rem .65rem; background:' + r.color + '18; color:' + r.color + '; border:1px solid ' + r.color + '40; border-radius:20px; text-decoration:none; font-size:.8rem; font-weight:600;">' + l.text + ' →</a>';
+      });
+    });
+    routeHTML += '</div></div>';
+  }
+
+  el.innerHTML = '<div style="padding:.9rem 1.1rem; border-radius:8px; background:' + bg + '; font-size:.9rem;">' + msg + routeHTML + '<br><a href="self-check.html" style="color:#1e40af; font-weight:700;">→ 做更詳細的評估</a></div>';
 }
 
 function toggleFaq(el) {
