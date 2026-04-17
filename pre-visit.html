@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="看診前症狀整理工具｜整理你的口顎功能、睡眠與呼吸相關症狀，讓就診時更順暢。適合初次就診、準備矯正或矯正後仍有問題的患者。">
+  <meta property="og:title" content="看診前症狀整理清單｜口顎功能健康站">
+  <meta property="og:description" content="看診前花10分鐘整理症狀，就診時更容易讓醫師理解你的狀況。">
+  <meta property="og:type" content="article">
+  <title>看診前症狀整理清單｜口顎功能健康站</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .checklist-section { margin-bottom: 2rem; }
+    .checklist-section h3 { font-size:1rem; color:#1e3a5f; margin:0 0 .8rem; }
+    .check-item { display:flex; align-items:flex-start; gap:.6rem; margin-bottom:.55rem; cursor:pointer; }
+    .check-item input[type="checkbox"] { margin-top:.15rem; width:1rem; height:1rem; flex-shrink:0; accent-color:#1d4ed8; cursor:pointer; }
+    .check-item label { font-size:.9rem; color:#374151; line-height:1.5; cursor:pointer; }
+    .check-item input:checked + label { color:#1d4ed8; }
+    .question-card { background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:1.2rem; margin-bottom:.8rem; }
+    .question-card .q-label { font-size:.72rem; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:.06em; margin-bottom:.4rem; }
+    .question-card p { margin:0; font-size:.9rem; color:#1e293b; line-height:1.6; }
+    .situation-tabs { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:1.5rem; }
+    .sit-tab { padding:.45rem 1rem; border:2px solid #cbd5e1; border-radius:20px; font-size:.85rem; cursor:pointer; background:white; color:#475569; transition:.2s; }
+    .sit-tab.active { background:#1d4ed8; border-color:#1d4ed8; color:white; }
+    .situation-block { display:none; }
+    .situation-block.active { display:block; }
+    @media print {
+      .site-nav, .hero, .breadcrumb, .situation-tabs, footer { display:none; }
+      .situation-block { display:block !important; }
+      body { font-size:12px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">🦷 口顎功能健康站</a>
+    <ul class="nav-links">
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="tongue-thrust.html">逆吞嚥</a></li>
+      <li><a href="osa-bruxism.html">磨牙與睡眠</a></li>
+      <li><a href="sleep-quality.html">睡眠品質</a></li>
+      <li><a href="mouth-breathing.html">口呼吸</a></li>
+      <li><a href="ankyloglossia.html">舌繫帶</a></li>
+      <li><a href="ncls.html">牙齒磨損</a></li>
+      <li><a href="omt.html">如何治療</a></li>
+      <li><a href="self-check.html">自我評估</a></li>
+      <li><a href="presentations.html">簡報資料</a></li>
+      <li><a href="research.html">研究文件</a></li>
+      <li><a href="about.html">關於本站</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="hero" style="background:linear-gradient(145deg,#064e3b,#065f46,#0d9488);">
+  <div class="tag">🗒 看診前工具</div>
+  <h1>看診前，先<em>把症狀整理清楚</em></h1>
+  <p class="sub">就診時能清楚說明症狀，醫師就能更快了解你的狀況。這份工具幫助你在看診前 10 分鐘，把可能相關的症狀、習慣與問題整理好。</p>
+  <div class="hero-btns">
+    <a href="#situation" class="btn btn-primary">選擇你的情況</a>
+    <a href="#questions-to-ask" class="btn btn-outline">想問醫師的問題</a>
+  </div>
+</div>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">首頁</a> › 看診前工具</div>
+
+  <!-- 說明 -->
+  <section>
+    <div class="hl" style="border-left:4px solid #0d9488; background:#f0fdf4;">
+      <div class="title">📌 這份工具怎麼用</div>
+      <p>根據你的情況選擇對應的清單，勾選符合你狀況的項目，就診時可以直接拿給醫師看或口頭說明。這份工具<strong>不能取代醫師的診斷</strong>，但可以幫助你更有效率地描述問題。</p>
+      <p style="margin-bottom:0; font-size:.85rem; color:#64748b;">如果你不確定從哪個科別開始，可以先參考 <a href="index.html#seek-help" style="color:#0d9488;">首頁的就醫建議</a>。</p>
+    </div>
+  </section>
+
+  <!-- 情況選擇 -->
+  <section id="situation">
+    <div class="section-label" style="background:#0d9488;">📋 選擇你的情況</div>
+    <h2>你目前是哪種情況？</h2>
+    <div class="situation-tabs">
+      <button class="sit-tab active" onclick="switchSituation('general', this)">我只是想先了解症狀</button>
+      <button class="sit-tab" onclick="switchSituation('ortho', this)">我準備做矯正</button>
+      <button class="sit-tab" onclick="switchSituation('post-ortho', this)">我矯正後還有問題</button>
+    </div>
+
+    <!-- 一般症狀 -->
+    <div class="situation-block active" id="sit-general">
+      <p style="font-size:.88rem; color:#64748b; margin-bottom:1.2rem;">以下是口顎功能相關的常見症狀清單，勾選你有的項目，方便就診時說明。</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+        <div class="checklist-section">
+          <h3>😮 呼吸與鼻腔</h3>
+          <div class="check-item"><input type="checkbox" id="g1"><label for="g1">習慣用嘴巴呼吸（白天或睡覺）</label></div>
+          <div class="check-item"><input type="checkbox" id="g2"><label for="g2">長期鼻塞或鼻腔不通</label></div>
+          <div class="check-item"><input type="checkbox" id="g3"><label for="g3">睡覺打鼾</label></div>
+          <div class="check-item"><input type="checkbox" id="g4"><label for="g4">睡眠時有被告知呼吸暫停</label></div>
+          <div class="check-item"><input type="checkbox" id="g5"><label for="g5">早晨嘴乾或喉嚨乾</label></div>
+        </div>
+        <div class="checklist-section">
+          <h3>🦷 咬合與下巴</h3>
+          <div class="check-item"><input type="checkbox" id="g6"><label for="g6">早晨下巴或太陽穴緊痛</label></div>
+          <div class="check-item"><input type="checkbox" id="g7"><label for="g7">磨牙（被告知或發現牙齒變短）</label></div>
+          <div class="check-item"><input type="checkbox" id="g8"><label for="g8">張嘴或咀嚼時下巴有聲音</label></div>
+          <div class="check-item"><input type="checkbox" id="g9"><label for="g9">牙齒頸部有缺口或敏感</label></div>
+          <div class="check-item"><input type="checkbox" id="g10"><label for="g10">咬合感覺哪裡不對</label></div>
+        </div>
+        <div class="checklist-section">
+          <h3>👅 吞嚥與舌頭</h3>
+          <div class="check-item"><input type="checkbox" id="g11"><label for="g11">吞東西時嘴唇或下巴會用力</label></div>
+          <div class="check-item"><input type="checkbox" id="g12"><label for="g12">嘴巴靜止時嘴唇無法自然閉合</label></div>
+          <div class="check-item"><input type="checkbox" id="g13"><label for="g13">說話有大舌頭或發音問題</label></div>
+          <div class="check-item"><input type="checkbox" id="g14"><label for="g14">舌繫帶曾被告知偏短</label></div>
+        </div>
+        <div class="checklist-section">
+          <h3>😴 睡眠與日間狀態</h3>
+          <div class="check-item"><input type="checkbox" id="g15"><label for="g15">睡足後仍感到疲憊</label></div>
+          <div class="check-item"><input type="checkbox" id="g16"><label for="g16">白天容易昏沉或注意力難以維持</label></div>
+          <div class="check-item"><input type="checkbox" id="g17"><label for="g17">晨間頭痛（太陽穴或後頸）</label></div>
+          <div class="check-item"><input type="checkbox" id="g18"><label for="g18">睡覺翻來覆去、不易入深眠</label></div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.2rem; padding:1rem; background:#ecfdf5; border-radius:8px; border:1px solid #6ee7b7;">
+        <p style="margin:0; font-size:.88rem; color:#065f46;"><strong>💡 就診建議：</strong>把勾選的項目告訴醫師，並說明症狀持續多久、有多頻繁。若同時有多個類別的症狀，可以說明你希望全面評估，不只是單一症狀。</p>
+      </div>
+    </div>
+
+    <!-- 準備矯正 -->
+    <div class="situation-block" id="sit-ortho">
+      <p style="font-size:.88rem; color:#64748b; margin-bottom:1.2rem;">準備矯正前，主動告知醫師這些口顎功能問題，有助於更完整的治療規劃。</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+        <div class="checklist-section">
+          <h3>⚠️ 治療前值得告知的症狀</h3>
+          <div class="check-item"><input type="checkbox" id="o1"><label for="o1">打鼾或睡眠呼吸暫停（已診斷或疑似）</label></div>
+          <div class="check-item"><input type="checkbox" id="o2"><label for="o2">早晨下巴痠痛或晨間頭痛</label></div>
+          <div class="check-item"><input type="checkbox" id="o3"><label for="o3">習慣口呼吸</label></div>
+          <div class="check-item"><input type="checkbox" id="o4"><label for="o4">吞嚥時嘴唇或下巴用力</label></div>
+          <div class="check-item"><input type="checkbox" id="o5"><label for="o5">舌繫帶曾被告知偏短</label></div>
+          <div class="check-item"><input type="checkbox" id="o6"><label for="o6">過去矯正後牙齒快速反彈</label></div>
+        </div>
+        <div class="checklist-section">
+          <h3>🦷 牙齒與咬合狀況</h3>
+          <div class="check-item"><input type="checkbox" id="o7"><label for="o7">磨牙或夜間咬合過緊</label></div>
+          <div class="check-item"><input type="checkbox" id="o8"><label for="o8">牙齒有明顯磨損或高度不均</label></div>
+          <div class="check-item"><input type="checkbox" id="o9"><label for="o9">目前或過去有顳顎關節問題</label></div>
+          <div class="check-item"><input type="checkbox" id="o10"><label for="o10">張嘴受限或有彈響聲</label></div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.2rem; padding:1rem; background:#fffbeb; border-radius:8px; border:1px solid #fcd34d;">
+        <p style="margin:0; font-size:.88rem; color:#92400e;"><strong>💡 矯正前建議：</strong>這些問題不一定會影響你做矯正的資格，但主動說明有助於醫師判斷是否需要在矯正前先處理，或在治療計畫中納入考量。建議在初診時就提出，而不是等到矯正途中。</p>
+      </div>
+
+      <div style="margin-top:1rem; padding:1rem; background:#eff6ff; border-radius:8px; border:1px solid #bfdbfe;">
+        <p style="margin:0; font-size:.88rem; color:#1e40af;">→ 想了解更多矯正前口顎功能評估的資訊，可參考 <a href="index.html#ortho-safety" style="color:#1d4ed8; font-weight:700;">矯正安全評估頁面</a>。</p>
+      </div>
+    </div>
+
+    <!-- 矯正後問題 -->
+    <div class="situation-block" id="sit-post-ortho">
+      <p style="font-size:.88rem; color:#64748b; margin-bottom:1.2rem;">矯正後仍有問題，整理清楚症狀與時間軸，有助於醫師評估後續處理方向。</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+        <div class="checklist-section">
+          <h3>📅 症狀時間軸</h3>
+          <div class="check-item"><input type="checkbox" id="p1"><label for="p1">矯正結束後症狀立即出現</label></div>
+          <div class="check-item"><input type="checkbox" id="p2"><label for="p2">矯正結束幾個月後才開始</label></div>
+          <div class="check-item"><input type="checkbox" id="p3"><label for="p3">保持器戴得不規律後開始</label></div>
+          <div class="check-item"><input type="checkbox" id="p4"><label for="p4">原本矯正前就有，矯正後更嚴重</label></div>
+        </div>
+        <div class="checklist-section">
+          <h3>⚠️ 目前有的症狀</h3>
+          <div class="check-item"><input type="checkbox" id="p5"><label for="p5">牙齒又開始移位或出現縫隙</label></div>
+          <div class="check-item"><input type="checkbox" id="p6"><label for="p6">咬合感覺和以前不同</label></div>
+          <div class="check-item"><input type="checkbox" id="p7"><label for="p7">下巴痠痛或有彈響聲</label></div>
+          <div class="check-item"><input type="checkbox" id="p8"><label for="p8">磨牙狀況變嚴重</label></div>
+          <div class="check-item"><input type="checkbox" id="p9"><label for="p9">牙齦退縮或牙齒敏感</label></div>
+          <div class="check-item"><input type="checkbox" id="p10"><label for="p10">對矯正結果不滿意，想了解原因</label></div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.2rem; padding:1rem; background:#fef2f2; border-radius:8px; border:1px solid #fca5a5;">
+        <p style="margin:0; font-size:.88rem; color:#991b1b;"><strong>💡 就診建議：</strong>先回到原矯正醫師說明狀況，描述症狀開始時間與保持器使用狀況。如需要，可以請求轉介評估或尋求第二意見。「矯正後問題」相關資訊，本站後續會補充完整內容。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 想問醫師的問題 -->
+  <section id="questions-to-ask">
+    <div class="section-label" style="background:#065f46;">💬 想問醫師的問題</div>
+    <h2>就診時可以提出的問題</h2>
+    <p style="color:#64748b; font-size:.88rem; margin-bottom:1.2rem;">這些問題不一定每題都適合你的情況，選擇對你最重要的 2-3 題提問，通常比一次問太多更有效率。</p>
+
+    <div class="question-card">
+      <div class="q-label">關於評估範圍</div>
+      <p>「我有幾個可能相關的症狀，可以請您評估是否需要做口顎功能方面的檢查嗎？」</p>
+    </div>
+    <div class="question-card">
+      <div class="q-label">關於症狀成因</div>
+      <p>「我的磨牙（或口呼吸／下巴問題）有沒有可能和其他問題有關聯，還是可以獨立處理？」</p>
+    </div>
+    <div class="question-card">
+      <div class="q-label">關於處理順序</div>
+      <p>「這些問題，有沒有哪個應該優先處理，或是有建議的就醫順序？」</p>
+    </div>
+    <div class="question-card">
+      <div class="q-label">關於矯正規劃</div>
+      <p>「我準備做矯正，有沒有哪些口顎功能問題值得在矯正前先確認或處理？」</p>
+    </div>
+    <div class="question-card">
+      <div class="q-label">關於轉介</div>
+      <p>「如果這個問題不在您的專科範圍內，您會建議我去哪個科別進一步評估？」</p>
+    </div>
+    <div class="question-card">
+      <div class="q-label">關於追蹤觀察</div>
+      <p>「如果暫時不需要積極治療，有沒有哪些狀況出現時，我應該儘快回來就診？」</p>
+    </div>
+  </section>
+
+  <!-- 相關工具導流 -->
+  <section>
+    <div class="section-label" style="background:#374151;">🔗 其他相關工具</div>
+    <div class="related-grid" style="margin-top:1rem;">
+      <a href="self-check.html" class="related-link">
+        <span style="font-weight:700;">自我評估工具</span>
+        <span style="font-size:.82rem; color:#64748b; display:block; margin-top:.2rem;">評估你目前的口顎功能狀況</span>
+      </a>
+      <a href="index.html#faq" class="related-link">
+        <span style="font-weight:700;">常見問答 FAQ</span>
+        <span style="font-size:.82rem; color:#64748b; display:block; margin-top:.2rem;">磨牙、吞嚥、矯正相關常見問題</span>
+      </a>
+      <a href="sleep-quality.html" class="related-link">
+        <span style="font-weight:700;">睡眠品質與口顎功能</span>
+        <span style="font-size:.82rem; color:#64748b; display:block; margin-top:.2rem;">睡不飽可能是口顎功能的訊號</span>
+      </a>
+      <a href="index.html#ortho-safety" class="related-link" style="background:linear-gradient(135deg,#fffbeb,#fef3c7); border:2px solid #d97706;">
+        <span style="font-weight:700; color:#92400e;">準備矯正？先看安全評估</span>
+        <span style="font-size:.82rem; color:#b45309; display:block; margin-top:.2rem;">了解矯正前值得確認的項目</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer style="background:#064e3b; color:#6ee7b7; text-align:center; padding:2rem 1rem; font-size:.82rem; margin-top:3rem;">
+  <p style="margin:0 0 .4rem;"><a href="index.html" style="color:#34d399; text-decoration:none;">口顎功能健康站</a>｜衛教資訊，非醫療建議</p>
+  <p style="margin:0; font-size:.78rem;">本頁工具用於協助病患整理症狀，不具診斷效力。實際診斷與建議由醫師面對面評估後決定。</p>
+</footer>
+
+<script>
+function switchSituation(id, btn) {
+  document.querySelectorAll('.situation-block').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.sit-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sit-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
