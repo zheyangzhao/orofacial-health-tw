@@ -246,6 +246,19 @@ p { margin-bottom: 1rem; color: var(--text); }
   main { padding: 1.5rem 1rem 4rem; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .three-sum ol li { font-size: .9rem; }
+
+  /* Hero: stack buttons vertically on mobile */
+  .hero-btns { flex-direction: column; align-items: stretch; gap: .6rem; }
+  .hero-btns .btn { text-align: center; }
+
+  /* 下一步三格：collapse to single column on mobile */
+  .next-step-grid { grid-template-columns: 1fr !important; }
+
+  /* 什麼時候求助 2-col grid → single column */
+  .seek-help-grid { grid-template-columns: 1fr !important; }
+
+  /* FAQ answers: easier to read */
+  .faq-a { font-size: .88rem; line-height: 1.7; }
 }
 
 [id] { scroll-margin-top: 56px; }
