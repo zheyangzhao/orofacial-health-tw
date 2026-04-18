@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="口顎功能風險雷達｜透過 20 題簡單問題，了解你在呼吸、睡眠、吞嚥、咀嚼、磨牙等八大面向的口顎功能風險輪廓。">
+  <meta property="og:title" content="口顎功能風險雷達｜口顎功能健康站">
+  <meta property="og:description" content="呼吸、睡眠、吞嚥、咀嚼、磨牙——這些症狀看似獨立，其實可能彼此相關。20 題快速評估，看見你的口顎功能風險輪廓。">
+  <meta property="og:type" content="website">
+  <title>口顎功能風險雷達｜口顎功能健康站</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    /* ── RADAR PAGE SPECIFIC ── */
+    .radar-hero {
+      background: linear-gradient(145deg, #1e1b4b, #312e81, #7c3aed);
+    }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer-box {
+      background: #fefce8;
+      border: 1px solid #eab308;
+      border-left: 4px solid #eab308;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      font-size: .88rem;
+      color: #713f12;
+      margin-bottom: 2rem;
+    }
+    .disclaimer-box strong { color: #92400e; }
+
+    /* ── QUIZ LAYOUT ── */
+    .quiz-section {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      border-left: 5px solid;
+    }
+    .axis-label {
+      display: flex; align-items: center; gap: .6rem;
+      font-size: 1.05rem; font-weight: 700; margin-bottom: 1.2rem;
+      color: var(--text);
+    }
+    .axis-icon {
+      width: 2rem; height: 2rem; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .95rem; flex-shrink: 0;
+    }
+    .q-item {
+      margin-bottom: 1.1rem;
+      padding-bottom: 1.1rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .q-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .q-text {
+      font-size: .95rem; margin-bottom: .55rem; line-height: 1.65;
+      color: #334155;
+    }
+    .q-options {
+      display: flex; flex-wrap: wrap; gap: .4rem;
+    }
+    .q-options label {
+      cursor: pointer;
+    }
+    .q-options input[type=radio] { display: none; }
+    .q-options span {
+      display: inline-block;
+      padding: .35rem .85rem;
+      border-radius: 100px;
+      border: 1.5px solid #cbd5e1;
+      font-size: .82rem;
+      color: #475569;
+      transition: all .18s;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .q-options input[type=radio]:checked + span {
+      border-color: var(--sel-color, #7c3aed);
+      background: var(--sel-bg, #f5f3ff);
+      color: var(--sel-color, #7c3aed);
+      font-weight: 600;
+    }
+    .q-options label:hover span {
+      border-color: #94a3b8; background: #f8fafc;
+    }
+
+    /* ── PROGRESS ── */
+    .progress-wrap { margin-bottom: 2rem; }
+    .progress-bar-outer {
+      height: 8px; background: #e2e8f0; border-radius: 100px;
+      overflow: hidden; margin-top: .4rem;
+    }
+    .progress-bar-inner {
+      height: 100%; background: linear-gradient(90deg, #7c3aed, #a855f7);
+      border-radius: 100px; transition: width .3s;
+    }
+    .progress-text { font-size: .82rem; color: var(--muted); }
+
+    /* ── SUBMIT ── */
+    .submit-area {
+      text-align: center; margin: 2rem 0;
+    }
+    .btn-submit {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: #fff; border: none; padding: .9rem 2.4rem;
+      font-size: 1.05rem; font-weight: 700; border-radius: 100px;
+      cursor: pointer; transition: transform .15s, box-shadow .15s;
+      box-shadow: 0 4px 18px rgba(124,58,237,.35);
+    }
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(124,58,237,.45);
+    }
+    .btn-submit:disabled {
+      opacity: .55; cursor: not-allowed; transform: none;
+    }
+    .unanswered-hint {
+      font-size: .82rem; color: #dc2626; margin-top: .6rem;
+      display: none;
+    }
+
+    /* ── RESULTS ── */
+    #results-section {
+      display: none;
+    }
+    .result-hero {
+      background: linear-gradient(135deg, #1e1b4b, #312e81);
+      color: #fff; border-radius: var(--radius);
+      padding: 2rem; margin-bottom: 1.5rem; text-align: center;
+    }
+    .result-hero h2 { font-size: 1.4rem; margin-bottom: .5rem; }
+    .result-hero p { font-size: .95rem; opacity: .88; }
+
+    .radar-container {
+      max-width: 480px; margin: 0 auto;
+      background: #fff; border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .radar-container canvas { max-height: 420px; }
+
+    /* ── TOP 3 AXES ── */
+    .top3-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .top3-card {
+      background: #fff; border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 1.25rem;
+      text-align: center; border-top: 4px solid;
+      transition: transform .15s;
+    }
+    .top3-card:hover { transform: translateY(-2px); }
+    .top3-rank {
+      font-size: .75rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; margin-bottom: .4rem; opacity: .7;
+    }
+    .top3-axis-name {
+      font-size: 1rem; font-weight: 700; margin-bottom: .4rem;
+    }
+    .top3-level {
+      display: inline-block; padding: .2rem .7rem;
+      border-radius: 100px; font-size: .78rem; font-weight: 700;
+    }
+    .level-high { background: #fee2e2; color: #b91c1c; }
+    .level-mid  { background: #fef3c7; color: #92400e; }
+    .level-low  { background: #dcfce7; color: #15803d; }
+
+    /* ── AXIS DETAIL LIST ── */
+    .axis-detail-list {
+      background: #fff; border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .axis-row {
+      display: flex; align-items: center; gap: .8rem;
+      padding: .65rem 0; border-bottom: 1px solid #f1f5f9;
+    }
+    .axis-row:last-child { border-bottom: none; }
+    .axis-row-name {
+      flex: 1; font-size: .92rem; font-weight: 600; color: #334155;
+    }
+    .axis-bar-wrap {
+      width: 140px; height: 8px; background: #e2e8f0;
+      border-radius: 100px; overflow: hidden; flex-shrink: 0;
+    }
+    .axis-bar-fill {
+      height: 100%; border-radius: 100px;
+    }
+    .axis-pct {
+      width: 3rem; text-align: right; font-size: .82rem;
+      color: var(--muted); font-weight: 600; flex-shrink: 0;
+    }
+
+    /* ── RESULT SUMMARY BOX ── */
+    .result-summary {
+      background: #f5f3ff; border: 1px solid #c4b5fd;
+      border-left: 4px solid #7c3aed; border-radius: var(--radius);
+      padding: 1.5rem; margin-bottom: 1.5rem;
+    }
+    .result-summary .summary-title {
+      font-weight: 700; color: #5b21b6; margin-bottom: .75rem;
+      font-size: 1rem;
+    }
+    .result-summary p { font-size: .95rem; color: #3730a3; line-height: 1.75; }
+
+    /* ── NEXT STEPS ── */
+    .next-steps-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .next-step-card {
+      background: #fff; border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 1.25rem;
+      border-top: 4px solid;
+    }
+    .next-step-card .step-tag {
+      font-size: .72rem; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; margin-bottom: .5rem; opacity: .7;
+    }
+    .next-step-card h4 { font-size: .95rem; margin-bottom: .5rem; }
+    .next-step-card p { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+    .next-step-card .step-link {
+      display: inline-block; margin-top: .75rem; padding: .4rem 1rem;
+      border-radius: 100px; font-size: .8rem; font-weight: 700;
+      text-decoration: none; transition: opacity .15s;
+    }
+    .next-step-card .step-link:hover { opacity: .8; }
+
+    /* ── REDO BUTTON ── */
+    .redo-wrap { text-align: center; margin: 2rem 0 3rem; }
+    .btn-redo {
+      background: transparent; border: 2px solid #7c3aed;
+      color: #7c3aed; padding: .65rem 1.8rem; border-radius: 100px;
+      font-size: .9rem; font-weight: 700; cursor: pointer;
+      transition: all .18s;
+    }
+    .btn-redo:hover { background: #7c3aed; color: #fff; }
+
+    /* ── AXIS COLORS (CSS vars per axis index) ── */
+    .axis-A { border-left-color: #2563eb; }
+    .icon-A  { background: #dbeafe; color: #2563eb; }
+    .axis-B  { border-left-color: #0891b2; }
+    .icon-B  { background: #cffafe; color: #0891b2; }
+    .axis-C  { border-left-color: #d97706; }
+    .icon-C  { background: #fef3c7; color: #d97706; }
+    .axis-D  { border-left-color: #16a34a; }
+    .icon-D  { background: #dcfce7; color: #16a34a; }
+    .axis-E  { border-left-color: #e11d48; }
+    .icon-E  { background: #fee2e2; color: #e11d48; }
+    .axis-F  { border-left-color: #d97706; }
+    .icon-F  { background: #fffbeb; color: #b45309; }
+    .axis-G  { border-left-color: #7c3aed; }
+    .icon-G  { background: #f5f3ff; color: #7c3aed; }
+    .axis-H  { border-left-color: #0f766e; }
+    .icon-H  { background: #ccfbf1; color: #0f766e; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .top3-grid { grid-template-columns: 1fr; }
+      .next-steps-grid { grid-template-columns: 1fr; }
+      .axis-bar-wrap { width: 90px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">🦷 口顎功能健康站</a>
+    <ul class="nav-links">
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="tongue-thrust.html">逆吞嚥</a></li>
+      <li><a href="osa-bruxism.html">磨牙與睡眠</a></li>
+      <li><a href="sleep-quality.html">睡眠品質</a></li>
+      <li><a href="mouth-breathing.html">口呼吸</a></li>
+      <li><a href="ankyloglossia.html">舌繫帶</a></li>
+      <li><a href="ncls.html">牙齒磨損</a></li>
+      <li><a href="omt.html">如何治療</a></li>
+      <li><a href="self-check.html">自我評估</a></li>
+      <li><a href="risk-radar.html" class="active">風險雷達</a></li>
+      <li><a href="presentations.html">簡報資料</a></li>
+      <li><a href="research.html">研究文件</a></li>
+      <li><a href="about.html">關於本站</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="hero radar-hero">
+  <div class="tag">🎯 口顎功能風險雷達</div>
+  <h1>有些症狀，<em>不該被分開看</em></h1>
+  <p class="sub">呼吸、睡眠、吞嚥、咀嚼、磨牙——20 題問卷，幫你看見這些面向的整體風險輪廓。不是診斷，而是讓你知道哪些問題值得在就診時主動提出。</p>
+  <div class="hero-btns">
+    <a href="#quiz-start" class="btn btn-primary">開始評估 ↓</a>
+    <a href="#about-radar" class="btn btn-outline">什麼是風險雷達</a>
+  </div>
+</div>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">首頁</a> › 風險雷達</div>
+
+  <!-- ABOUT -->
+  <section id="about-radar">
+    <h2>什麼是口顎功能風險雷達？</h2>
+    <div class="card-grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="card">
+        <div class="card-icon" style="background:#f5f3ff; color:#7c3aed;">🗺️</div>
+        <div class="card-title">看見整體輪廓</div>
+        <p>不是找單一問題，而是把你在 8 個面向的訊號放在一起看，讓你了解哪些面向相對值得關注。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#dbeafe; color:#2563eb;">💬</div>
+        <div class="card-title">幫你準備問題</div>
+        <p>結果可作為就診前的參考，讓你知道哪些症狀值得主動向醫師提出，不要等到被動詢問才說。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#dcfce7; color:#16a34a;">📋</div>
+        <div class="card-title">不是診斷</div>
+        <p>這個工具是衛教與風險提醒，無法取代專業評估。結果偏高不代表一定有問題，偏低也不代表不需要看診。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <section>
+    <div class="disclaimer-box">
+      <strong>⚠️ 重要說明：</strong>此工具僅供衛教與風險提醒，不構成個別醫療診斷，也不提供治療建議。若你有持續的功能、呼吸、睡眠、咀嚼、關節或咬合困擾，仍應接受專業評估。
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz-start">
+    <h2>開始評估</h2>
+    <p style="color:var(--muted); margin-bottom:1.5rem;">共 20 題，分為 8 個面向，約 3–5 分鐘完成。每題請選最接近你平常狀況的答案。</p>
+
+    <!-- Progress -->
+    <div class="progress-wrap">
+      <div class="progress-text">已作答：<span id="answered-count">0</span> / 20 題</div>
+      <div class="progress-bar-outer">
+        <div class="progress-bar-inner" id="progress-bar" style="width:0%"></div>
+      </div>
+    </div>
+
+    <form id="quiz-form">
+
+      <!-- AXIS A: 呼吸與鼻道 -->
+      <div class="quiz-section axis-A" style="--sel-color:#2563eb; --sel-bg:#dbeafe;">
+        <div class="axis-label">
+          <div class="axis-icon icon-A">🌬️</div>
+          <span>A. 呼吸與鼻道</span>
+        </div>
+        <div class="q-item">
+          <div class="q-text">1. 你平常休息時，嘴巴是否常常是張開的？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q1" value="0"><span>從不</span></label>
+            <label><input type="radio" name="q1" value="1"><span>偶爾</span></label>
+            <label><input type="radio" name="q1" value="2"><span>常常</span></label>
+            <label><input type="radio" name="q1" value="3"><span>幾乎每天</span></label>
+          </div>
+        </div>
+        <div class="q-item">
+          <div class="q-text">2. 你是否常有鼻塞、過敏，或覺得用鼻子呼吸不順？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q2" value="0"><span>從不</span></label>
+            <label><input type="radio" name="q2" value="1"><span>偶爾</span></label>
+            <label><input type="radio" name="q2" value="2"><span>常常</span></label>
+            <label><input type="radio" name="q2" value="3"><span>幾乎每天</span></label>
+          </div>
+        </div>
+        <div class="q-item">
+          <div class="q-text">3. 別人是否曾提醒你常用嘴巴呼吸，或你自己也這樣覺得？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q3" value="0"><span>從不</span></label>
+            <label><input type="radio" name="q3" value="1"><span>偶爾</span></label>
+            <label><input type="radio" name="q3" value="2"><span>常常</span></label>
+            <label><input type="radio" name="q3" value="3"><span>幾乎每天</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- AXIS B: 睡眠與打鼾 -->
+      <div class="quiz-section axis-B" style="--sel-color:#0891b2; --sel-bg:#cffafe;">
+        <div class="axis-label">
+          <div class="axis-icon icon-B">🌙</div>
+          <span>B. 睡眠與打鼾</span>
+        </div>
+        <div class="q-item">
+          <div class="q-text">4. 你睡覺時是否常打鼾，或被說有打鼾聲？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q4" value="0"><span>從不</span></label>
+            <label><input type="radio" name="q4" value="1"><span>偶爾</span></label>
+            <label><input type="radio" name="q4" value="2"><span>常常</span></label>
+            <label><input type="radio" name="q4" value="3"><span>幾乎每天</span></label>
+          </div>
+        </div>
+        <div class="q-item">
+          <div class="q-text">5. 你醒來時是否常覺得口乾、沒睡飽，或白天容易想睡？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q5" value="0"><span>從不</span></label>
+            <label><input type="radio" name="q5" value="1"><span>偶爾</span></label>
+            <label><input type="radio" name="q5" value="2"><span>常常</span></label>
+            <label><input type="radio" name="q5" value="3"><span>幾乎每天</span></label>
+          </div>
+        </div>
+        <div class="q-item">
+          <div class="q-text">6. 你是否曾被家人、醫師懷疑或告知有睡眠呼吸中止的風險？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q6" value="0"><span>沒有</span></label>
+            <label><input type="radio" name="q6" value="1"><span>輕微懷疑</span></label>
+            <label><input type="radio" name="q6" value="2"><span>曾被提及</span></label>
+            <label><input type="radio" name="q6" value="3"><span>確認或高度懷疑</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- AXIS C: 舌功能與舌繫帶 -->
+      <div class="quiz-section axis-C" style="--sel-color:#d97706; --sel-bg:#fef3c7;">
+        <div class="axis-label">
+          <div class="axis-icon icon-C">👅</div>
+          <span>C. 舌功能與舌繫帶</span>
+        </div>
+        <div class="q-item">
+          <div class="q-text">7. 你是否覺得舌頭抬高、伸展、或貼上顎的動作不太自然或有限制感？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q7" value="0"><span>沒有</span></label>
+            <label><input type="radio" name="q7" value="1"><span>稍微</span></label>
+            <label><input type="radio" name="q7" value="2"><span>明顯</span></label>
+            <label><input type="radio" name="q7" value="3"><span>非常明顯</span></label>
+          </div>
+        </div>
+        <div class="q-item">
+          <div class="q-text">8. 吞嚥或發音時，你的舌頭是否容易往前頂，或覺得舌頭位置不對？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q8" value="0"><span>從不</span></label>
+            <label><input type="radio" name="q8" value="1"><span>偶爾</span></label>
+            <label><input type="radio" name="q8" value="2"><span>常常</span></label>
+            <label><input type="radio" name="q8" value="3"><span>幾乎每次</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- AXIS D: 吞嚥型態 -->
+      <div class="quiz-section axis-D" style="--sel-color:#16a34a; --sel-bg:#dcfce7;">
+        <div class="axis-label">
+          <div class="axis-icon icon-D">💧</div>
+          <span>D. 吞嚥型態</span>
+        </div>
+        <div class="q-item">
+          <div class="q-text">9. 吞嚥時，你的嘴唇周圍、下巴或頸部是否會明顯出力或緊繃？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q9" value="0"><span>從不</span></label>
+            <label><input type="radio" name="q9" value="1"><span>偶爾</span></label>
+            <label><input type="radio" name="q9" value="2"><span>常常</span></label>
+            <label><input type="radio" name="q9" value="3"><span>幾乎每次</span></label>
+          </div>
+        </div>
+        <div class="q-item">
+          <div class="q-text">10. 吞口水時，你是否有點頭、抬頭、或牙齒用力咬住的感覺？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q10" value="0"><span>從不</span></label>
+            <label><input type="radio" name="q10" value="1"><span>偶爾</span></label>
+            <label><input type="radio" name="q10" value="2"><span>常常</span></label>
+            <label><input type="radio" name="q10" value="3"><span>幾乎每次</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- AXIS E: 發音與口周肌功能 -->
+      <div class="quiz-section axis-E" style="--sel-color:#e11d48; --sel-bg:#fee2e2;">
+        <div class="axis-label">
+          <div class="axis-icon icon-E">🗣️</div>
+          <span>E. 發音與口周肌功能</span>
+        </div>
+        <div class="q-item">
+          <div class="q-text">11. 某些音（例如捲舌音、齒音）你是否不容易發清楚，或會用其他方式代替？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q11" value="0"><span>沒有</span></label>
+            <label><input type="radio" name="q11" value="1"><span>偶爾</span></label>
+            <label><input type="radio" name="q11" value="2"><span>常常</span></label>
+            <label><input type="radio" name="q11" value="3"><span>幾乎所有時候</span></label>
+          </div>
+        </div>
+        <div class="q-item">
+          <div class="q-text">12. 說話時，你是否常感覺嘴唇、臉頰或下巴周圍特別用力或疲勞？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q12" value="0"><span>從不</span></label>
+            <label><input type="radio" name="q12" value="1"><span>偶爾</span></label>
+            <label><input type="radio" name="q12" value="2"><span>常常</span></label>
+            <label><input type="radio" name="q12" value="3"><span>幾乎每天</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- AXIS F: 咀嚼與飲食型態 -->
+      <div class="quiz-section axis-F" style="--sel-color:#b45309; --sel-bg:#fffbeb;">
+        <div class="axis-label">
+          <div class="axis-icon icon-F">🍎</div>
+          <span>F. 咀嚼與飲食型態</span>
+        </div>
+        <div class="q-item">
+          <div class="q-text">13. 你是否偏好軟食、精緻食物，或不太喜歡需要大量咀嚼的食物？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q13" value="0"><span>從不</span></label>
+            <label><input type="radio" name="q13" value="1"><span>偶爾</span></label>
+            <label><input type="radio" name="q13" value="2"><span>常常</span></label>
+            <label><input type="radio" name="q13" value="3"><span>幾乎都是</span></label>
+          </div>
+        </div>
+        <div class="q-item">
+          <div class="q-text">14. 吃東西時，你是否較少雙側交替咀嚼，或常直接上下咬幾下就吞？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q14" value="0"><span>從不</span></label>
+            <label><input type="radio" name="q14" value="1"><span>偶爾</span></label>
+            <label><input type="radio" name="q14" value="2"><span>常常</span></label>
+            <label><input type="radio" name="q14" value="3"><span>幾乎都是</span></label>
+          </div>
+        </div>
+        <div class="q-item">
+          <div class="q-text">15. 你是否不太習慣用前牙切斷食物，吃東西主要靠後牙直接咬？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q15" value="0"><span>從不</span></label>
+            <label><input type="radio" name="q15" value="1"><span>偶爾</span></label>
+            <label><input type="radio" name="q15" value="2"><span>常常</span></label>
+            <label><input type="radio" name="q15" value="3"><span>幾乎都是</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- AXIS G: 磨牙與磨耗 -->
+      <div class="quiz-section axis-G" style="--sel-color:#7c3aed; --sel-bg:#f5f3ff;">
+        <div class="axis-label">
+          <div class="axis-icon icon-G">⚡</div>
+          <span>G. 磨牙與牙齒磨耗</span>
+        </div>
+        <div class="q-item">
+          <div class="q-text">16. 你睡覺時是否被說有磨牙聲，或早上醒來下巴、臉頰、顳部感到緊繃或疲勞？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q16" value="0"><span>從不</span></label>
+            <label><input type="radio" name="q16" value="1"><span>偶爾</span></label>
+            <label><input type="radio" name="q16" value="2"><span>常常</span></label>
+            <label><input type="radio" name="q16" value="3"><span>幾乎每天</span></label>
+          </div>
+        </div>
+        <div class="q-item">
+          <div class="q-text">17. 你的牙齒是否有明顯磨耗、縮短，或牙齒表面變光滑？（可詢問牙醫）</div>
+          <div class="q-options">
+            <label><input type="radio" name="q17" value="0"><span>沒有</span></label>
+            <label><input type="radio" name="q17" value="1"><span>輕微</span></label>
+            <label><input type="radio" name="q17" value="2"><span>中等</span></label>
+            <label><input type="radio" name="q17" value="3"><span>明顯</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- AXIS H: 齒列/顏面/發育警訊 -->
+      <div class="quiz-section axis-H" style="--sel-color:#0f766e; --sel-bg:#ccfbf1;">
+        <div class="axis-label">
+          <div class="axis-icon icon-H">🦷</div>
+          <span>H. 齒列 / 顏面 / 發育警訊</span>
+        </div>
+        <div class="q-item">
+          <div class="q-text">18. 你是否有明顯齒列不整、深咬、咬合歪斜，或牙齒空間不足的情況？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q18" value="0"><span>沒有</span></label>
+            <label><input type="radio" name="q18" value="1"><span>輕微</span></label>
+            <label><input type="radio" name="q18" value="2"><span>中等</span></label>
+            <label><input type="radio" name="q18" value="3"><span>明顯</span></label>
+          </div>
+        </div>
+        <div class="q-item">
+          <div class="q-text">19. 你是否常覺得自己下巴偏小、後縮，或臉型支撐感不足？</div>
+          <div class="q-options">
+            <label><input type="radio" name="q19" value="0"><span>沒有</span></label>
+            <label><input type="radio" name="q19" value="1"><span>稍微</span></label>
+            <label><input type="radio" name="q19" value="2"><span>明顯</span></label>
+            <label><input type="radio" name="q19" value="3"><span>非常明顯</span></label>
+          </div>
+        </div>
+        <div class="q-item">
+          <div class="q-text">20. 你的前牙切端是否仍有明顯鋸齒狀（mamelons），磨耗不多？（兒童/青少年適用）</div>
+          <div class="q-options">
+            <label><input type="radio" name="q20" value="0"><span>不適用 / 不清楚</span></label>
+            <label><input type="radio" name="q20" value="1"><span>稍微有</span></label>
+            <label><input type="radio" name="q20" value="2"><span>明顯有</span></label>
+            <label><input type="radio" name="q20" value="3"><span>非常明顯</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="submit-area">
+        <button type="button" class="btn-submit" id="submit-btn" onclick="calculateResults()">
+          產生我的風險雷達圖 →
+        </button>
+        <div class="unanswered-hint" id="unanswered-hint">
+          請完成所有 20 題後再提交。
+        </div>
+      </div>
+
+    </form>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results-section">
+    <div class="result-hero">
+      <h2>🎯 你的口顎功能風險雷達</h2>
+      <p>以下是根據你的回答產生的風險輪廓。數值高不等於確診，而是提醒你哪些面向值得主動討論。</p>
+    </div>
+
+    <!-- Radar Chart -->
+    <div class="radar-container">
+      <canvas id="radarChart"></canvas>
+    </div>
+
+    <!-- Top 3 -->
+    <h3 style="margin-bottom:1rem;">🔍 最值得注意的面向</h3>
+    <div class="top3-grid" id="top3-grid"></div>
+
+    <!-- All axes detail -->
+    <div class="axis-detail-list">
+      <h4 style="margin-bottom:1rem; font-size:.95rem; color:var(--muted);">各面向詳細分數</h4>
+      <div id="axis-detail-list"></div>
+    </div>
+
+    <!-- Summary -->
+    <div class="result-summary">
+      <div class="summary-title">📋 你的評估摘要</div>
+      <p id="result-summary-text"></p>
+    </div>
+
+    <!-- Disclaimer in results -->
+    <div class="disclaimer-box" style="margin-bottom:1.5rem;">
+      <strong>提醒：</strong>此評估結果僅供參考與衛教用途，不構成醫療診斷。結果偏高不代表你一定有問題，偏低也不代表不需要就診。若你有疑慮，請諮詢相關專業醫師。
+    </div>
+
+    <!-- Next Steps -->
+    <h3 style="margin-bottom:1rem;">🚀 建議的下一步</h3>
+    <div class="next-steps-grid">
+      <div class="next-step-card" style="border-top-color:#2563eb;">
+        <div class="step-tag" style="color:#2563eb;">A 類 · 深入了解</div>
+        <h4>先看對應的主題頁</h4>
+        <p>根據你分數較高的面向，閱讀我們的深度主題文章，了解背景知識與常見誤解。</p>
+        <div id="topic-links" style="margin-top:.75rem;"></div>
+      </div>
+      <div class="next-step-card" style="border-top-color:#7c3aed;">
+        <div class="step-tag" style="color:#7c3aed;">B 類 · 準備矯正</div>
+        <h4>矯正前先了解口顎評估</h4>
+        <p>若你正在考慮矯正，建議先了解完整診斷的重要性，以及哪些口顎功能問題應在矯正前確認。</p>
+        <a href="https://zheyangzhao.github.io/orthodontic-safety-guide/" target="_blank" class="step-link" style="background:#f5f3ff; color:#7c3aed;">前往矯正安全網站 →</a>
+      </div>
+      <div class="next-step-card" style="border-top-color:#dc2626;">
+        <div class="step-tag" style="color:#dc2626;">C 類 · 主動提出</div>
+        <h4>若有明顯睡眠或呼吸訊號</h4>
+        <p>睡眠呼吸中止、嚴重打鼾、口呼吸等面向分數偏高時，建議主動向牙科、耳鼻喉科或睡眠科提出。</p>
+        <a href="pre-visit.html" class="step-link" style="background:#fee2e2; color:#dc2626;">就診前症狀整理工具 →</a>
+      </div>
+    </div>
+
+    <!-- Redo -->
+    <div class="redo-wrap">
+      <button class="btn-redo" onclick="resetQuiz()">🔄 重新作答</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-logo">🦷 口顎功能健康站</div>
+      <p>以學術文獻為基礎的口顎功能衛教資源</p>
+    </div>
+    <div class="footer-links">
+      <a href="research.html">研究文件</a>
+      <a href="about.html">關於本站</a>
+      <a href="https://zheyangzhao.github.io/orthodontic-safety-guide/" target="_blank">矯正安全網站</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── AXIS CONFIG ──
+const AXES = [
+  { key:'A', name:'呼吸與鼻道',      qs:['q1','q2','q3'], max:9,  color:'#2563eb', topicUrl:'mouth-breathing.html', topicName:'口呼吸主題' },
+  { key:'B', name:'睡眠與打鼾',      qs:['q4','q5','q6'], max:9,  color:'#0891b2', topicUrl:'sleep-quality.html',  topicName:'睡眠品質主題' },
+  { key:'C', name:'舌功能與舌繫帶',  qs:['q7','q8'],      max:6,  color:'#d97706', topicUrl:'ankyloglossia.html', topicName:'舌繫帶主題' },
+  { key:'D', name:'吞嚥型態',        qs:['q9','q10'],     max:6,  color:'#16a34a', topicUrl:'tongue-thrust.html', topicName:'吞嚥型態主題' },
+  { key:'E', name:'發音與口周肌',    qs:['q11','q12'],    max:6,  color:'#e11d48', topicUrl:'omt.html',           topicName:'口周肌功能' },
+  { key:'F', name:'咀嚼與飲食',      qs:['q13','q14','q15'], max:9, color:'#b45309', topicUrl:'research.html',    topicName:'咀嚼與飲食研究' },
+  { key:'G', name:'磨牙與磨耗',      qs:['q16','q17'],    max:6,  color:'#7c3aed', topicUrl:'osa-bruxism.html',  topicName:'磨牙與睡眠' },
+  { key:'H', name:'齒列顏面警訊',    qs:['q18','q19','q20'], max:9, color:'#0f766e', topicUrl:'self-check.html', topicName:'完整自我評估' },
+];
+
+// ── PROGRESS TRACKING ──
+const form = document.getElementById('quiz-form');
+const progressBar = document.getElementById('progress-bar');
+const answeredCount = document.getElementById('answered-count');
+const allQNames = AXES.flatMap(a => a.qs);
+
+form.addEventListener('change', updateProgress);
+
+function updateProgress() {
+  const answered = allQNames.filter(name => {
+    const els = form.querySelectorAll(`input[name="${name}"]`);
+    return Array.from(els).some(el => el.checked);
+  }).length;
+  const pct = Math.round(answered / allQNames.length * 100);
+  progressBar.style.width = pct + '%';
+  answeredCount.textContent = answered;
+}
+
+// ── CALCULATE ──
+let radarChartInstance = null;
+
+function calculateResults() {
+  // Check all answered
+  const unanswered = allQNames.filter(name => {
+    return !Array.from(form.querySelectorAll(`input[name="${name}"]`)).some(el => el.checked);
+  });
+  if (unanswered.length > 0) {
+    document.getElementById('unanswered-hint').style.display = 'block';
+    // Scroll to first unanswered
+    const firstUnanswered = form.querySelector(`input[name="${unanswered[0]}"]`);
+    firstUnanswered && firstUnanswered.closest('.q-item').scrollIntoView({behavior:'smooth', block:'center'});
+    return;
+  }
+  document.getElementById('unanswered-hint').style.display = 'none';
+
+  // Compute scores
+  const scores = AXES.map(axis => {
+    const raw = axis.qs.reduce((sum, qName) => {
+      const el = form.querySelector(`input[name="${qName}"]:checked`);
+      return sum + (el ? parseInt(el.value) : 0);
+    }, 0);
+    const pct = Math.round(raw / axis.max * 100);
+    return { ...axis, raw, pct };
+  });
+
+  // Sort for top 3
+  const sorted = [...scores].sort((a,b) => b.pct - a.pct);
+  const top3 = sorted.slice(0, 3);
+
+  // Show results section
+  document.getElementById('quiz-start').style.display = 'none';
+  const resultsEl = document.getElementById('results-section');
+  resultsEl.style.display = 'block';
+  resultsEl.scrollIntoView({behavior:'smooth'});
+
+  // Draw radar
+  drawRadar(scores);
+
+  // Top 3 cards
+  renderTop3(top3);
+
+  // Axis detail
+  renderAxisDetail(scores);
+
+  // Summary text
+  renderSummary(top3, scores);
+
+  // Topic links
+  renderTopicLinks(top3);
+}
+
+function levelLabel(pct) {
+  if (pct >= 67) return { label:'高', cls:'level-high' };
+  if (pct >= 34) return { label:'中', cls:'level-mid' };
+  return { label:'低', cls:'level-low' };
+}
+
+function drawRadar(scores) {
+  const ctx = document.getElementById('radarChart').getContext('2d');
+  if (radarChartInstance) radarChartInstance.destroy();
+
+  radarChartInstance = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: scores.map(s => s.name),
+      datasets: [{
+        label: '風險程度 (%)',
+        data: scores.map(s => s.pct),
+        backgroundColor: 'rgba(124,58,237,0.15)',
+        borderColor: '#7c3aed',
+        borderWidth: 2.5,
+        pointBackgroundColor: scores.map(s => s.color),
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: scores.map(s => s.color),
+        pointRadius: 6,
+        pointHoverRadius: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.raw}% (${levelLabel(ctx.raw).label})`,
+          }
+        }
+      },
+      scales: {
+        r: {
+          min: 0, max: 100,
+          ticks: {
+            stepSize: 25,
+            font: { size: 10 },
+            color: '#94a3b8',
+            backdropColor: 'transparent',
+          },
+          grid: { color: '#e2e8f0' },
+          pointLabels: {
+            font: { size: 11, weight: '600' },
+            color: '#334155',
+          },
+          angleLines: { color: '#e2e8f0' },
+        }
+      }
+    }
+  });
+}
+
+function renderTop3(top3) {
+  const container = document.getElementById('top3-grid');
+  const ranks = ['最值得關注', '第二位', '第三位'];
+  container.innerHTML = top3.map((s, i) => {
+    const lv = levelLabel(s.pct);
+    return `
+      <div class="top3-card" style="border-top-color:${s.color};">
+        <div class="top3-rank" style="color:${s.color};">${ranks[i]}</div>
+        <div class="top3-axis-name">${s.name}</div>
+        <div class="top3-level ${lv.cls}">${lv.label}風險 ${s.pct}%</div>
+      </div>`;
+  }).join('');
+}
+
+function renderAxisDetail(scores) {
+  const container = document.getElementById('axis-detail-list');
+  container.innerHTML = scores.map(s => {
+    const lv = levelLabel(s.pct);
+    return `
+      <div class="axis-row">
+        <div class="axis-row-name">${s.name}</div>
+        <div class="axis-bar-wrap">
+          <div class="axis-bar-fill" style="width:${s.pct}%; background:${s.color};"></div>
+        </div>
+        <div class="axis-pct">${s.pct}%</div>
+        <span class="top3-level ${lv.cls}" style="min-width:2.8rem; font-size:.72rem;">${lv.label}</span>
+      </div>`;
+  }).join('');
+}
+
+function renderSummary(top3, scores) {
+  const highAxes = scores.filter(s => s.pct >= 67);
+  const midAxes  = scores.filter(s => s.pct >= 34 && s.pct < 67);
+
+  let text = '';
+  const top3Names = top3.map(s => `「${s.name}」`).join('、');
+  text += `你的結果顯示，${top3Names} 這幾個面向相對值得注意。`;
+
+  if (highAxes.length > 0) {
+    text += `其中「${highAxes.map(s=>s.name).join('、')}」的分數較高，建議在下次就診時主動提出。`;
+  } else if (midAxes.length > 0) {
+    text += `各面向屬於中度提醒範圍，整體輪廓顯示這些訊號值得一起討論。`;
+  } else {
+    text += `整體分數偏低，但若你有任何持續困擾，仍建議和醫師討論。`;
+  }
+
+  text += `\n\n這不代表你已經有明確診斷，而是提醒你：在矯正、復健或評估前，這些面向值得被放在一起考量。`;
+
+  document.getElementById('result-summary-text').innerHTML = text.replace(/\n\n/g, '<br><br>');
+}
+
+function renderTopicLinks(top3) {
+  const container = document.getElementById('topic-links');
+  container.innerHTML = top3.map(s =>
+    `<a href="${s.topicUrl}" class="step-link" style="display:block; margin-bottom:.4rem; background:#dbeafe; color:#1d4ed8;">${s.topicName} →</a>`
+  ).join('');
+}
+
+// ── RESET ──
+function resetQuiz() {
+  form.reset();
+  updateProgress();
+  document.getElementById('quiz-start').style.display = '';
+  document.getElementById('results-section').style.display = 'none';
+  document.getElementById('unanswered-hint').style.display = 'none';
+  document.getElementById('quiz-start').scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
