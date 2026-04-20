@@ -17,6 +17,7 @@
     <a href="index.html" class="nav-logo">🦷 口顎功能健康站</a>
     <ul class="nav-links">
       <li><a href="index.html">首頁</a></li>
+      <li><a href="self-check.html">自我評估</a></li>
       <li><a href="tongue-thrust.html">逆吞嚥</a></li>
       <li><a href="osa-bruxism.html">磨牙與睡眠</a></li>
       <li><a href="sleep-quality.html">睡眠品質</a></li>
@@ -24,8 +25,7 @@
       <li><a href="ankyloglossia.html">舌繫帶</a></li>
       <li><a href="ncls.html">牙齒磨損</a></li>
       <li><a href="omt.html" class="active">如何治療</a></li>
-      <li><a href="self-check.html">自我評估</a></li>
-      <li><a href="risk-radar.html">風險雷達</a></li>
+      <li><a href="audio.html">音頻導覽</a></li>
       <li><a href="presentations.html">簡報資料</a></li>
       <li><a href="research.html">研究文件</a></li>
       <li><a href="about.html">關於本站</a></li>
@@ -438,6 +438,64 @@
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">OMT 訓練後，效果能維持多久？<span class="faq-toggle">+</span></div>
       <div class="faq-a">如果訓練完成、新的肌肉習慣真的建立起來，效果通常是持久的——因為這已經變成你的「預設動作」，像學會騎腳踏車一樣，不容易忘記。研究顯示，OMT 完成後追蹤 2–4 年，大多數人仍維持改善的吞嚥模式和 OSA 指數。但如果只做了一半就停，或沒有真正建立習慣，復發的機率較高。</div>
+    </div>
+  </section>
+
+  <!-- 學術實證整理：發音與口周肌功能 + 咀嚼與飲食型態 -->
+  <section id="evidence">
+    <div class="section-label">📚 學術實證</div>
+    <h2>研究告訴我們什麼？</h2>
+    <p style="color:#64748b;margin-bottom:1.5rem;">以下研究整理來自 Elicit 與 Consensus 學術資料庫查詢（2025 年 4 月），涵蓋系統性回顧、RCT 及動物實驗縱向研究。</p>
+    <div style="display:flex;gap:.5rem;margin-bottom:1.5rem;">
+      <button onclick="document.getElementById('ev5-zh').style.display='block';document.getElementById('ev5-en').style.display='none';this.style.background='#7c3aed';this.style.color='#fff';document.getElementById('ev5-en-btn').style.background='';document.getElementById('ev5-en-btn').style.color='#7c3aed';" style="padding:.4rem 1rem;border-radius:100px;border:1.5px solid #7c3aed;background:#7c3aed;color:#fff;cursor:pointer;font-size:.88rem;">繁體中文</button>
+      <button id="ev5-en-btn" onclick="document.getElementById('ev5-en').style.display='block';document.getElementById('ev5-zh').style.display='none';this.style.background='#7c3aed';this.style.color='#fff';" style="padding:.4rem 1rem;border-radius:100px;border:1.5px solid #7c3aed;background:#fff;color:#7c3aed;cursor:pointer;font-size:.88rem;">English</button>
+    </div>
+    <div id="ev5-zh">
+      <h3 style="color:#1e1b4b;margin-top:0;">發音與口周肌功能：主要研究發現</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li><strong>OMT 單獨使用目前尚無足夠證據支持矯正語音障礙。</strong> Merkel-Walsh 等人（2025）系統回顧（13 篇研究，397 名兒童）：高品質研究均無法將語音改善直接歸因於 OMT，不優於傳統構音訓練。</li>
+        <li><strong>OMT 合併構音訓練方向正向。</strong> Shortland 等人（2021，28 篇研究）：所有研究皆報告治療後口腔功能進步，但多數證據等級偏低；建議 OMT 在跨科別團隊中使用。</li>
+        <li><strong>OMT 對舌位、唇肌力量及吞嚥型態有顯著改善。</strong> Bigenzahn 等人（1992，n=103）：完成肌功能治療後 66% 恢復正常構音，唇力、舌姿勢與吞嚥型態均顯著改善。</li>
+        <li><strong>前牙開咬是與構音扭曲關聯最明確的錯咬合類型。</strong> Thijs 等人（2021，17 篇研究）：前牙開咬與頂音/齒槽音扭曲及異常吞嚥有清楚相關。</li>
+      </ul>
+      <h3 style="color:#1e1b4b;">咀嚼與飲食型態：主要研究發現</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li><strong>軟食飲食削減咀嚼肌量，改變顱顏骨骼生長方向。</strong> Kiliaridis 等人（1985）大鼠縱向研究：軟食組顏面骨前旋生長、下顎角生長速率減緩。Ciochon 等人（1997）迷你豬研究：硬食組咬肌較軟食組重 25%，齒列擁擠和牙弓狹窄程度顯著較低。</li>
+        <li><strong>軟食造成骨骼附著區三維發育不足。</strong> Kono 等人（2020）小鼠顯微電腦斷層掃描：軟食組顴弓及顳肌附著區域顯著狹窄且前移。</li>
+        <li><strong>飲食質地影響咀嚼神經動作學習。</strong> Liu 等人（1998）：液態飲食大鼠咀嚼節律不規則、升頜肌 EMG 活動量異常增高，提示功能性轉換受阻。</li>
+        <li><strong>錯咬合顯著降低兒童咀嚼效率。</strong> Alshammari 等人（2022，57 篇研究系統回顧）：有錯咬合的兒童最大咬合力、肌電圖活性及咀嚼效率均低於對照組。</li>
+      </ul>
+      <h3 style="color:#1e1b4b;">主要參考文獻</h3>
+      <ol style="line-height:1.9;color:#334155;padding-left:1.25rem;font-size:.9rem;">
+        <li>Merkel-Walsh R et al. (2025). OMT for Speech Sound Disorders in Children: Systematic Review. <em>Int J Orofacial Myology.</em></li>
+        <li>Shortland H et al. (2021). OMT and Myofunctional Devices: Systematic Quantitative Review. <em>Am J Speech-Language Pathol.</em></li>
+        <li>Thijs Z et al. (2021). Oral Myofunctional and Articulation Disorders in Children with Malocclusions. <em>Folia Phoniatrica.</em></li>
+        <li>Kiliaridis S et al. (1985). Masticatory function and craniofacial morphology. <em>European J Orthodontics.</em></li>
+        <li>Ciochon R et al. (1997). Dietary consistency and craniofacial development in minipigs. <em>J Craniofacial Genetics &amp; Dev Biol.</em></li>
+        <li>Alshammari A et al. (2022). Effect of malocclusion on jaw motor function and chewing in children: systematic review. <em>Clinical Oral Investigations.</em></li>
+      </ol>
+    </div>
+    <div id="ev5-en" style="display:none;">
+      <h3 style="color:#1e1b4b;margin-top:0;">Speech & Orofacial Muscle Function: Key Findings</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li><strong>OMT alone lacks conclusive evidence for speech sound disorders.</strong> Merkel-Walsh et al. (2025, 13 studies, 397 children): high-quality studies show no speech improvement attributable to OMT alone.</li>
+        <li><strong>OMT combined with articulation therapy shows marginal positive results.</strong> Shortland et al. (2021, 28 studies): all studies showed post-treatment functional improvement; half recommended OMT within multidisciplinary teams.</li>
+        <li><strong>OMT significantly improves tongue posture, lip strength, and swallowing pattern.</strong> Bigenzahn et al. (1992, n=103): 66% achieved normal articulation post-treatment.</li>
+        <li><strong>Anterior open bite is most consistently linked to articulatory distortions.</strong> Thijs et al. (2021, 17 studies): clear relationship between open bite and apico-alveolar distortions.</li>
+      </ul>
+      <h3 style="color:#1e1b4b;">Chewing & Dietary Habits: Key Findings</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li><strong>Soft diet reduces masticatory muscle mass and alters craniofacial growth direction.</strong> Kiliaridis et al. (1985, rats); Ciochon et al. (1997, minipigs): hard-diet animals had 25% greater masseter mass; significantly less dental crowding and arch narrowing.</li>
+        <li><strong>Soft diet induces 3D bony underdevelopment at muscle attachment sites.</strong> Kono et al. (2020, micro-CT in mice): zygomatic arches and temporal muscle attachment regions significantly narrower in soft-diet group.</li>
+        <li><strong>Malocclusion reduces chewing efficiency in children.</strong> Alshammari et al. (2022, 57-study systematic review): lower maximum bite force, reduced masticatory EMG, lower chewing efficiency in malocclusion group.</li>
+      </ul>
+      <h3 style="color:#1e1b4b;">Key References</h3>
+      <ol style="line-height:1.9;color:#334155;padding-left:1.25rem;font-size:.9rem;">
+        <li>Merkel-Walsh R et al. (2025). OMT for Speech Sound Disorders. <em>Int J Orofacial Myology.</em></li>
+        <li>Shortland H et al. (2021). OMT and Myofunctional Devices: Systematic Review. <em>Am J Speech-Language Pathol.</em></li>
+        <li>Kiliaridis S et al. (1985). Masticatory function and craniofacial morphology. <em>Eur J Orthodontics.</em></li>
+        <li>Alshammari A et al. (2022). Malocclusion effect on jaw motor function in children. <em>Clinical Oral Investigations.</em></li>
+      </ol>
     </div>
   </section>
 

@@ -17,6 +17,7 @@
     <a href="index.html" class="nav-logo">🦷 口顎功能健康站</a>
     <ul class="nav-links">
       <li><a href="index.html">首頁</a></li>
+      <li><a href="self-check.html">自我評估</a></li>
       <li><a href="tongue-thrust.html">逆吞嚥</a></li>
       <li><a href="osa-bruxism.html">磨牙與睡眠</a></li>
       <li><a href="sleep-quality.html">睡眠品質</a></li>
@@ -24,8 +25,7 @@
       <li><a href="ankyloglossia.html">舌繫帶</a></li>
       <li><a href="ncls.html" class="active">牙齒磨損</a></li>
       <li><a href="omt.html">如何治療</a></li>
-      <li><a href="self-check.html">自我評估</a></li>
-      <li><a href="risk-radar.html">風險雷達</a></li>
+      <li><a href="audio.html">音頻導覽</a></li>
       <li><a href="presentations.html">簡報資料</a></li>
       <li><a href="research.html">研究文件</a></li>
       <li><a href="about.html">關於本站</a></li>
@@ -407,6 +407,55 @@
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">孩子也會有 NCCLs 嗎？<span class="faq-toggle">+</span></div>
       <div class="faq-a">可以有，但相對少見——NCCLs 是累積性損傷，需要時間積累。但如果孩子有嚴重逆吞嚥、磨牙或 GERD，也可能在年輕時就出現。更重要的是，早期糾正逆吞嚥和口呼吸，能預防未來的 NCCLs 發生。</div>
+    </div>
+  </section>
+
+  <!-- 學術實證整理：磨牙與牙齒磨耗 -->
+  <section id="evidence">
+    <div class="section-label">📚 學術實證</div>
+    <h2>研究告訴我們什麼？</h2>
+    <p style="color:#64748b;margin-bottom:1.5rem;">以下研究整理來自 Elicit 與 Consensus 學術資料庫查詢（2025 年 4 月），涵蓋系統性回顧、統合分析與神經生物學研究。</p>
+    <div style="display:flex;gap:.5rem;margin-bottom:1.5rem;">
+      <button onclick="document.getElementById('ev7-zh').style.display='block';document.getElementById('ev7-en').style.display='none';this.style.background='#7c3aed';this.style.color='#fff';document.getElementById('ev7-en-btn').style.background='';document.getElementById('ev7-en-btn').style.color='#7c3aed';" style="padding:.4rem 1rem;border-radius:100px;border:1.5px solid #7c3aed;background:#7c3aed;color:#fff;cursor:pointer;font-size:.88rem;">繁體中文</button>
+      <button id="ev7-en-btn" onclick="document.getElementById('ev7-en').style.display='block';document.getElementById('ev7-zh').style.display='none';this.style.background='#7c3aed';this.style.color='#fff';" style="padding:.4rem 1rem;border-radius:100px;border:1.5px solid #7c3aed;background:#fff;color:#7c3aed;cursor:pointer;font-size:.88rem;">English</button>
+    </div>
+    <div id="ev7-zh">
+      <h3 style="color:#1e1b4b;margin-top:0;">主要研究發現</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li><strong>壓力與睡眠磨牙（SB）有顯著統計關聯，但整體證據品質偏低。</strong> Polmann 等人（2020，10 項研究系統回顧）：SB 患者壓力自評分數顯著較高（平均差 4.59，95% CI 0.26–8.92）。Chemelo 等人（2020）統合分析：高壓者出現磨牙的勝算比為 2.07（95% CI 1.51–2.83），整體 GRADE 評級為極低。</li>
+        <li><strong>慢性壓力透過 HPA 軸活化形成磨牙的神經生物自我強化迴路。</strong> Pavlou 等人（2024）：慢性壓力造成中樞神經系統特定路徑退化並持續提高皮質醇，強化不自主口顎肌肉活動，形成「壓力→磨牙→壓力」的正回饋迴路。</li>
+        <li><strong>睡眠磨牙本質是節律性咀嚼肌活動（RMMA），與睡眠微覺醒和自律神經密切相關。</strong> Kato 等人（2023）：SB 發作叢集出現於微覺醒前後，伴隨交感神經活化；SB 現被歸類為多因素運動障礙，而非單純牙科副功能習慣。</li>
+        <li><strong>磨牙臨床後果涵蓋多個系統，目前治療僅為緩解性而非根治性。</strong> Góra 等人（2024）：咬合板、肉毒桿菌毒素注射與認知行為治療均無法永久消除磨牙行為；琺瑯質磨耗、牙周傷害、顳顎關節功能障礙為主要後遺症。</li>
+      </ul>
+      <h3 style="color:#1e1b4b;">研究限制</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li>各研究磨牙定義不一致（自填問卷 vs PSG 金標準），且壓力─磨牙研究多為橫斷面設計，無法確立因果方向。</li>
+        <li>HPA 軸活化與磨牙的雙向回饋假說目前仍以理論模型為主，需更多縱向研究驗證。</li>
+      </ul>
+      <h3 style="color:#1e1b4b;">主要參考文獻</h3>
+      <ol style="line-height:1.9;color:#334155;padding-left:1.25rem;font-size:.9rem;">
+        <li>Polmann H et al. (2020). Sleep bruxism and stress in adults: systematic review and meta-analysis. <em>J Oral Rehabilitation.</em></li>
+        <li>Chemelo VS et al. (2020). Stress and Bruxism: Systematic Review and Meta-Analysis. <em>Frontiers in Neurology.</em> (OR=2.07)</li>
+        <li>Pavlou IA et al. (2024). Neurobiology of bruxism: The impact of stress. <em>Biomedical Reports.</em></li>
+        <li>Kato T et al. (2023). Pathophysiology of sleep bruxism: narrative review. <em>J Oral Biosciences.</em></li>
+        <li>Góra A et al. (2024). Diagnosis and management of bruxism: literature review. <em>Quality in Sport.</em></li>
+      </ol>
+    </div>
+    <div id="ev7-en" style="display:none;">
+      <h3 style="color:#1e1b4b;margin-top:0;">Key Findings</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li><strong>Stress and sleep bruxism are significantly associated; evidence quality remains low.</strong> Polmann et al. (2020, 10 studies): higher self-reported stress in SB individuals (MD 4.59, 95% CI 0.26–8.92). Chemelo et al. (2020): stressed individuals ~2× more likely to have bruxism (OR 2.07, 95% CI 1.51–2.83).</li>
+        <li><strong>Chronic stress activates HPA axis creating a self-reinforcing neurobiological bruxism loop.</strong> Pavlou et al. (2024): chronic stress degrades neuronal pathways controlling orofacial involuntary activity and elevates cortisol, further reinforcing bruxist episodes.</li>
+        <li><strong>Sleep bruxism involves RMMA closely tied to sleep microarousals and autonomic activation.</strong> Kato et al. (2023): SB episodes cluster around microarousal responses; now classified as a multifactorial movement disorder.</li>
+        <li><strong>No treatment permanently eliminates bruxism; all interventions are palliative.</strong> Góra et al. (2024): splints, botulinum toxin, CBT all reduce sequelae but do not resolve the underlying mechanism.</li>
+      </ul>
+      <h3 style="color:#1e1b4b;">Key References</h3>
+      <ol style="line-height:1.9;color:#334155;padding-left:1.25rem;font-size:.9rem;">
+        <li>Polmann H et al. (2020). Sleep bruxism and stress: systematic review and meta-analysis. <em>J Oral Rehabilitation.</em></li>
+        <li>Chemelo VS et al. (2020). Stress and Bruxism: Meta-Analysis. <em>Frontiers in Neurology.</em></li>
+        <li>Pavlou IA et al. (2024). Neurobiology of bruxism. <em>Biomedical Reports.</em></li>
+        <li>Kato T et al. (2023). Pathophysiology of sleep bruxism. <em>J Oral Biosciences.</em></li>
+      </ol>
     </div>
   </section>
 

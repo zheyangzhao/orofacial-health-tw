@@ -17,6 +17,7 @@
     <a href="index.html" class="nav-logo">🦷 口顎功能健康站</a>
     <ul class="nav-links">
       <li><a href="index.html">首頁</a></li>
+      <li><a href="self-check.html">自我評估</a></li>
       <li><a href="tongue-thrust.html">逆吞嚥</a></li>
       <li><a href="osa-bruxism.html">磨牙與睡眠</a></li>
       <li><a href="sleep-quality.html">睡眠品質</a></li>
@@ -24,8 +25,7 @@
       <li><a href="ankyloglossia.html">舌繫帶</a></li>
       <li><a href="ncls.html">牙齒磨損</a></li>
       <li><a href="omt.html">如何治療</a></li>
-      <li><a href="self-check.html">自我評估</a></li>
-      <li><a href="risk-radar.html">風險雷達</a></li>
+      <li><a href="audio.html">音頻導覽</a></li>
       <li><a href="presentations.html">簡報資料</a></li>
       <li><a href="research.html">研究文件</a></li>
       <li><a href="about.html">關於本站</a></li>
@@ -481,6 +481,77 @@
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">大人的口呼吸還能改善嗎？<span class="faq-toggle">+</span></div>
       <div class="faq-a">可以！成人的改善路徑包括：過敏治療、OMT 訓練、針對 OSA 的治療（如 PAP）、必要時手術（如手術輔助快速上顎擴展 SARPE）。骨骼雖然不再成長，但軟組織、肌肉習慣和呼吸模式是可以訓練改變的。改善口呼吸後，睡眠品質、白天活力都可能明顯提升。</div>
+    </div>
+  </section>
+
+  <!-- 學術實證整理 -->
+  <section id="evidence">
+    <div class="section-label">📚 學術實證</div>
+    <h2>研究告訴我們什麼？</h2>
+    <p style="color:#64748b;margin-bottom:1.5rem;">以下研究整理來自 Elicit 與 Consensus 學術資料庫查詢結果（2025 年 4 月），涵蓋系統性回顧、統合分析與大型世代研究。</p>
+
+    <!-- 語言切換 -->
+    <div style="display:flex;gap:.5rem;margin-bottom:1.5rem;">
+      <button onclick="document.getElementById('ev-zh').style.display='block';document.getElementById('ev-en').style.display='none';this.style.background='#7c3aed';this.style.color='#fff';document.getElementById('ev-en-btn').style.background='';document.getElementById('ev-en-btn').style.color='';" style="padding:.4rem 1rem;border-radius:100px;border:1.5px solid #7c3aed;background:#7c3aed;color:#fff;cursor:pointer;font-size:.88rem;">繁體中文</button>
+      <button id="ev-en-btn" onclick="document.getElementById('ev-en').style.display='block';document.getElementById('ev-zh').style.display='none';this.style.background='#7c3aed';this.style.color='#fff';document.getElementById('ev-en-btn').style.background='#7c3aed';document.getElementById('ev-en-btn').style.color='#fff';" style="padding:.4rem 1rem;border-radius:100px;border:1.5px solid #7c3aed;background:#fff;color:#7c3aed;cursor:pointer;font-size:.88rem;">English</button>
+    </div>
+
+    <!-- 中文版 -->
+    <div id="ev-zh">
+      <h3 style="color:#1e1b4b;margin-top:0;">主要研究發現</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li><strong>口呼吸導致可量化的骨骼改變。</strong> Zhao 等人（2021，<em>BMC Oral Health</em>，統合分析 10 篇研究）發現，口呼吸兒童的上下顎骨均顯著向後下方旋轉（p&lt;0.0001），咬合平面傾斜加大，上門牙向唇側傾斜，並普遍伴隨咽部氣道狹窄。</li>
+        <li><strong>上顎弓狹窄、後牙錯咬合、第二類錯咬合是最一致的牙科表徵。</strong> Harari 等人（2010，<em>The Laryngoscope</em>，n=116）發現口呼吸組後牙錯咬合盛行率達 49%，顯著高於鼻呼吸組的 26%（p=.006）。多篇系統性回顧一致指出上顎弓狹窄與覆蓋過大。</li>
+        <li><strong>腺樣體肥大是最主要的致病原因，形成惡性循環。</strong> Zhang 等人（2024，<em>Frontiers in Public Health</em>）彙整 20 年文獻，指出氣道阻塞 → 口呼吸 → 口周肌失衡 → 骨骼錯咬合 → 氣道更窄，三者互相強化，稱為「腺樣體面容惡性循環」。</li>
+        <li><strong>影響具年齡依賴性，早期介入效果更好。</strong> Mattar 等人（2011）追蹤術後約 28 個月，發現 3–6 歲接受腺樣體切除術的兒童，下顎生長方向出現顯著正常化。骨骼可塑期（12 歲前）是介入的黃金時間。</li>
+        <li><strong>口呼吸與睡眠障礙高度相關。</strong> Primarti 等人（2025，n=343）發現口呼吸兒童罹患睡眠呼吸障礙（SDB）的風險高達 4.24 倍（95% CI: 2.70–6.65）。Izu 等人（2010）研究 248 名口呼吸兒童，42% 確診 OSAS，58% 為原發性打鼾。</li>
+      </ul>
+
+      <h3 style="color:#1e1b4b;">研究限制</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li>因果關係仍有爭議：部分研究認為原本顏面結構較窄的兒童更容易發展為口呼吸，而非反向。</li>
+        <li>研究設計異質性高，「口呼吸」的診斷標準不一（臨床觀察、家長問卷、多項睡眠生理檢查均有採用）。</li>
+        <li>多數研究為橫斷面或回溯性設計，長期追蹤資料不足，難以確認術後骨骼矯正效果的持久性。</li>
+      </ul>
+
+      <h3 style="color:#1e1b4b;">主要參考文獻</h3>
+      <ol style="line-height:1.9;color:#334155;padding-left:1.25rem;font-size:.9rem;">
+        <li>Zhao Z et al. (2021). Effects of mouth breathing on facial skeletal development in children: a systematic review and meta-analysis. <em>BMC Oral Health</em>. (被引用 97 次)</li>
+        <li>Harari D et al. (2010). The effect of mouth breathing versus nasal breathing on dentofacial and craniofacial development in orthodontic patients. <em>The Laryngoscope</em>. (被引用 246 次)</li>
+        <li>Lin L et al. (2022). The impact of mouth breathing on dentofacial development: A concise review. <em>Frontiers in Public Health</em>. (被引用 93 次)</li>
+        <li>Zhang J et al. (2024). Adenoid facies: a long-term vicious cycle of mouth breathing, adenoid hypertrophy, and atypical craniofacial development. <em>Frontiers in Public Health</em>.</li>
+        <li>Primarti R et al. (2025). Mouth Breathing and Its Impact on Sleep Breathing Disorders in Children. <em>Clinical, Cosmetic and Investigational Dentistry</em>.</li>
+        <li>Izu SC et al. (2010). Obstructive sleep apnea syndrome (OSAS) in mouth breathing children. <em>Brazilian Journal of Otorhinolaryngology</em>. (被引用 74 次)</li>
+      </ol>
+    </div>
+
+    <!-- 英文版 -->
+    <div id="ev-en" style="display:none;">
+      <h3 style="color:#1e1b4b;margin-top:0;">Key Findings</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li><strong>Mouth breathing causes measurable skeletal changes.</strong> A meta-analysis of 10 studies (Zhao et al., 2021, <em>BMC Oral Health</em>) found backward/downward rotation of both maxilla and mandible (p&lt;0.0001), steeper occlusal planes, labial inclination of upper incisors, and pharyngeal airway stenosis in mouth-breathing children.</li>
+        <li><strong>Narrow palate, posterior crossbite, and Class II malocclusion are the most consistently reported dental consequences.</strong> Harari et al. (2010, <em>The Laryngoscope</em>, n=116) found posterior crossbite in 49% of mouth breathers vs. 26% of nasal breathers (p=.006).</li>
+        <li><strong>Adenoid/tonsillar hypertrophy is the primary driver, creating a self-reinforcing vicious cycle.</strong> Zhang et al. (2024) described 20 years of evidence: airway obstruction → mouth breathing → perioral muscle imbalance → skeletal malocclusion → further airway constriction ("adenoid facies cycle").</li>
+        <li><strong>Effects are age-dependent; early intervention is most effective.</strong> Mattar et al. (2011) showed significant normalization of mandibular growth direction within ~28 months after adenotonsillectomy in children aged 3–6. The growth period (before age 12) is the critical window.</li>
+        <li><strong>Mouth breathing is strongly linked to sleep-disordered breathing.</strong> Primarti et al. (2025, n=343) found a 4.24-fold higher risk of SDB in mouth breathers (95% CI: 2.70–6.65). Izu et al. (2010) found 42% of 248 mouth-breathing children had confirmed OSAS.</li>
+      </ul>
+
+      <h3 style="color:#1e1b4b;">Limitations</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li>Causality remains debated: some evidence suggests narrow craniofacial anatomy predisposes to mouth breathing rather than the reverse.</li>
+        <li>High heterogeneity in study designs; inconsistent diagnostic criteria for "mouth breathing" across studies.</li>
+        <li>Mostly cross-sectional or retrospective designs; limited long-term follow-up data on durability of skeletal improvements post-intervention.</li>
+      </ul>
+
+      <h3 style="color:#1e1b4b;">Key References</h3>
+      <ol style="line-height:1.9;color:#334155;padding-left:1.25rem;font-size:.9rem;">
+        <li>Zhao Z et al. (2021). Effects of mouth breathing on facial skeletal development in children: a systematic review and meta-analysis. <em>BMC Oral Health</em>. (97 citations)</li>
+        <li>Harari D et al. (2010). The effect of mouth breathing versus nasal breathing on dentofacial and craniofacial development in orthodontic patients. <em>The Laryngoscope</em>. (246 citations)</li>
+        <li>Lin L et al. (2022). The impact of mouth breathing on dentofacial development: A concise review. <em>Frontiers in Public Health</em>. (93 citations)</li>
+        <li>Zhang J et al. (2024). Adenoid facies: a long-term vicious cycle of mouth breathing, adenoid hypertrophy, and atypical craniofacial development. <em>Frontiers in Public Health</em>.</li>
+        <li>Primarti R et al. (2025). Mouth Breathing and Its Impact on Sleep Breathing Disorders in Children. <em>Clinical, Cosmetic and Investigational Dentistry</em>.</li>
+        <li>Izu SC et al. (2010). Obstructive sleep apnea syndrome (OSAS) in mouth breathing children. <em>Brazilian Journal of Otorhinolaryngology</em>. (74 citations)</li>
+      </ol>
     </div>
   </section>
 

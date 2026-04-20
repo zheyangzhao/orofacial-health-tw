@@ -17,14 +17,14 @@
     <a href="index.html" class="nav-logo">🦷 口顎功能健康站</a>
     <ul class="nav-links">
       <li><a href="index.html">首頁</a></li>
+      <li><a href="self-check.html">自我評估</a></li>
       <li><a href="tongue-thrust.html">逆吞嚥</a></li>
       <li><a href="osa-bruxism.html" class="active">磨牙與睡眠</a></li>
       <li><a href="mouth-breathing.html">口呼吸</a></li>
       <li><a href="ankyloglossia.html">舌繫帶</a></li>
       <li><a href="ncls.html">牙齒磨損</a></li>
       <li><a href="omt.html">如何治療</a></li>
-      <li><a href="self-check.html">自我評估</a></li>
-      <li><a href="risk-radar.html">風險雷達</a></li>
+      <li><a href="audio.html">音頻導覽</a></li>
       <li><a href="presentations.html">簡報資料</a></li>
       <li><a href="research.html">研究文件</a></li>
       <li><a href="about.html">關於本站</a></li>
@@ -436,6 +436,75 @@
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">胃食道逆流（GERD）和磨牙有什麼關係？<span class="faq-toggle">+</span></div>
       <div class="faq-a">GERD、OSA、磨牙三者共享「夜間微覺醒」機制。胃酸逆流刺激食道 → 大腦發出微覺醒訊號 → 誘發 RMMA（磨牙）。同時，OSA 增加腹壓，也會惡化 GERD。這三個問題常常一起出現，稱為「三重共病」，需要整合性的診療計畫。</div>
+    </div>
+  </section>
+
+  <!-- 學術實證整理 -->
+  <section id="evidence">
+    <div class="section-label">📚 學術實證</div>
+    <h2>研究告訴我們什麼？</h2>
+    <p style="color:#64748b;margin-bottom:1.5rem;">以下研究整理來自 Elicit 與 Consensus 學術資料庫查詢（2025 年 4 月），涵蓋系統性回顧、統合分析與多功能睡眠監測研究。</p>
+
+    <div style="display:flex;gap:.5rem;margin-bottom:1.5rem;">
+      <button onclick="document.getElementById('ev2-zh').style.display='block';document.getElementById('ev2-en').style.display='none';this.style.background='#7c3aed';this.style.color='#fff';document.getElementById('ev2-en-btn').style.background='';document.getElementById('ev2-en-btn').style.color='#7c3aed';" style="padding:.4rem 1rem;border-radius:100px;border:1.5px solid #7c3aed;background:#7c3aed;color:#fff;cursor:pointer;font-size:.88rem;">繁體中文</button>
+      <button id="ev2-en-btn" onclick="document.getElementById('ev2-en').style.display='block';document.getElementById('ev2-zh').style.display='none';this.style.background='#7c3aed';this.style.color='#fff';" style="padding:.4rem 1rem;border-radius:100px;border:1.5px solid #7c3aed;background:#fff;color:#7c3aed;cursor:pointer;font-size:.88rem;">English</button>
+    </div>
+
+    <div id="ev2-zh">
+      <h3 style="color:#1e1b4b;margin-top:0;">主要研究發現</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li><strong>顱顏結構失衡是兒童 OSA 的核心風險指標。</strong> Liu 等人（2023，統合分析 16 項研究）發現，OSA 兒童的下頜骨後縮（SNB 角減少 2.10°）、顎間差異增大（ANB 角增加 1.78°）、下頜平面角加大（FH-MP 增加 3.65°）及上顎磨牙弓寬度縮窄，均達高度統計顯著差異，顯示顏面骨骼型態可作為早期 OSA 篩查指標。</li>
+        <li><strong>SDB 與錯咬合在兒童族群高度共存。</strong> Shirke & Katre（2023，n=177 名 6–12 歲兒童）發現 SDB 盛行率高達 69%，且 SDB 與 Class II/III 錯咬合顯著相關（OR = 3.79），與高度正畸治療需求的相關性更達 OR = 53.64。</li>
+        <li><strong>睡眠磨牙症（SB）與 OSA 共病率約 21–41%，中輕度 OSA 磨牙現象反而更顯著。</strong> Martynowicz 等人（2019，PSG 研究 n=110）發現輕中度 OSA 患者磨牙發作指數（BEI = 5.50）顯著高於重度 OSA（BEI = 1.62），提示中度缺氧引發的覺醒反應會觸發咀嚼肌異常收縮。</li>
+        <li><strong>習慣打鼾且下頜後縮的兒童，有 30.5% 確診 OSA。</strong> Çapan 等人（2013，n=36，8–14 歲）研究顯示，正畸科可辨識的顏面特徵（窄上顎、後縮下頜）具有臨床篩查 OSA 的實用價值。</li>
+        <li><strong>環境因素（口呼吸、飲食軟化、咀嚼不足）推動現代 OSA 流行。</strong> Yu 等人（2022，163 篇文獻範疇性回顧）指出 93% 的研究支持環境因素與顱顏發育異常具有顯著關聯。</li>
+      </ul>
+
+      <h3 style="color:#1e1b4b;">研究限制</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li>多數研究為橫斷面設計，因果方向（顱顏型態造成 OSA，或 OSA 口呼吸改變顏面發育）仍難確認。</li>
+        <li>頭顱測量標準不一，各研究間異質性高（I² 達 79–97%），統合結果需謹慎解讀。</li>
+        <li>磨牙症多以自述問卷診斷而非 PSG 金標準，降低診斷精確度。</li>
+        <li>兒童 OSA 樣本量偏小，GRADE 實證等級多屬「極低至中等」。</li>
+      </ul>
+
+      <h3 style="color:#1e1b4b;">主要參考文獻</h3>
+      <ol style="line-height:1.9;color:#334155;padding-left:1.25rem;font-size:.9rem;">
+        <li>Liu Y et al. (2023). Dental and craniofacial characteristics in children with OSA: systematic review and meta-analysis. <em>European Journal of Orthodontics</em>. (34 citations)</li>
+        <li>Flores-Mir C et al. (2013). Craniofacial morphological characteristics in children with OSAS: systematic review and meta-analysis. <em>JADA</em>. (191 citations)</li>
+        <li>Fagundes N et al. (2022). Craniofacial features in children with OSA: systematic review and meta-analysis. <em>Journal of Clinical Sleep Medicine</em>. (50 citations)</li>
+        <li>González González A et al. (2023). Sleep Apnea–Hypopnea Syndrome and Sleep Bruxism: A Systematic Review. <em>Journal of Clinical Medicine</em>.</li>
+        <li>Martynowicz H et al. (2019). The Relationship between Sleep Bruxism and Obstructive Sleep Apnea Based on Polysomnographic Findings. <em>Journal of Clinical Medicine</em>. (88 citations)</li>
+        <li>Shirke SR & Katre AN (2023). Association of SDB and Developing Malocclusion in Children. <em>Cureus</em>.</li>
+      </ol>
+    </div>
+
+    <div id="ev2-en" style="display:none;">
+      <h3 style="color:#1e1b4b;margin-top:0;">Key Findings</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li><strong>Craniofacial morphology is a key OSA risk marker in children.</strong> A meta-analysis of 16 studies (Liu et al., 2023) found OSA children show mandibular retroposition (SNB MD = −2.10°), larger ANB angle (MD = +1.78°), steeper mandibular plane (FH-MP MD = +3.65°), and narrower upper arch widths — all statistically significant, suggesting dentists can screen for OSA risk through craniofacial assessment.</li>
+        <li><strong>SDB and malocclusion co-occur in 69% of children aged 6–12.</strong> Shirke & Katre (2023, n=177) found SDB strongly associated with Class II/III malocclusion (OR = 3.79) and high orthodontic treatment need (OR = 53.64).</li>
+        <li><strong>Sleep bruxism co-occurs with OSA in 21–41% of cases; mild/moderate OSA patients brux more than severe ones.</strong> Martynowicz et al. (2019, n=110 PSG study) found BEI = 5.50 in mild/moderate OSA vs. BEI = 1.62 in severe OSA — suggesting cortical arousal responses during moderate hypoxia trigger rhythmic masticatory muscle activity.</li>
+        <li><strong>Children with habitual snoring and retrognathic mandible have a 30.5% confirmed OSA rate.</strong> (Çapan et al., 2013, n=36) — indicating that orthodontically identifiable facial features serve as clinical OSA screening indicators.</li>
+        <li><strong>Environmental factors (mouth breathing, soft diet, reduced mastication) drive modern OSA prevalence</strong> — 93% of 163 reviewed studies confirm this association (Yu et al., 2022).</li>
+      </ul>
+
+      <h3 style="color:#1e1b4b;">Limitations</h3>
+      <ul style="line-height:1.9;color:#334155;padding-left:1.25rem;">
+        <li>Mostly cross-sectional designs; causality between craniofacial morphology and OSA remains bidirectional and unresolved.</li>
+        <li>High heterogeneity across cephalometric studies (I² = 79–97%); pooled estimates should be interpreted cautiously.</li>
+        <li>SB diagnosed mostly by self-report rather than PSG gold standard; evidence grade for pediatric OSA is mostly "very low to moderate."</li>
+      </ul>
+
+      <h3 style="color:#1e1b4b;">Key References</h3>
+      <ol style="line-height:1.9;color:#334155;padding-left:1.25rem;font-size:.9rem;">
+        <li>Liu Y et al. (2023). Dental and craniofacial characteristics in children with OSA. <em>European Journal of Orthodontics</em>. (34 citations)</li>
+        <li>Flores-Mir C et al. (2013). Craniofacial morphological characteristics in children with OSAS. <em>JADA</em>. (191 citations)</li>
+        <li>Fagundes N et al. (2022). Craniofacial features in children with OSA. <em>Journal of Clinical Sleep Medicine</em>. (50 citations)</li>
+        <li>González González A et al. (2023). Sleep Apnea–Hypopnea Syndrome and Sleep Bruxism: Systematic Review. <em>Journal of Clinical Medicine</em>.</li>
+        <li>Martynowicz H et al. (2019). Sleep Bruxism and OSA: Polysomnographic Findings. <em>Journal of Clinical Medicine</em>. (88 citations)</li>
+        <li>Shirke SR & Katre AN (2023). SDB and Malocclusion in Children. <em>Cureus</em>.</li>
+      </ol>
     </div>
   </section>
 
